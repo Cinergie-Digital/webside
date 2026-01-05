@@ -1,25 +1,11 @@
-# Netlify Build Settings
-[build]
-  command = "npm install --legacy-peer-deps && CI=false npm run build"
-  publish = "build"
-
-# Security Headers for all routes
+# Apply security headers to HTML/JS pages
 [[headers]]
   for = "/*"
   [headers.values]
-    # Clickjacking protection
     X-Frame-Options = "DENY"
-
-    # Stop MIME type sniffing
     X-Content-Type-Options = "nosniff"
-
-    # Referrer Policy
     Referrer-Policy = "strict-origin-when-cross-origin"
-
-    # Permissions Policy (feature control)
     Permissions-Policy = "geolocation=(), microphone=(), camera=()"
-
-    # Content Security Policy (multi-line for clarity)
     Content-Security-Policy = """
       default-src 'self';
       script-src 'self';
@@ -31,18 +17,38 @@
       frame-ancestors 'none';
     """
 
-# Optional: Add cache control for static assets (recommended)
+# Apply headers specifically to fonts
 [[headers]]
   for = "/fonts/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+    Content-Security-Policy = "default-src 'self'; font-src 'self' data: https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; object-src 'none'; base-uri 'self'; frame-ancestors 'none';"
 
-[[headers]]
-  for = "/favicon.svg"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
+# Apply headers to manifest.json
 [[headers]]
   for = "/manifest.json"
   [headers.values]
-    Cache-Control = "public, max-age=3600"
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+    Content-Security-Policy = "default-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none';"
+
+# Apply headers to robots.txt
+[[headers]]
+  for = "/robots.txt"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+    Content-Security-Policy = "default-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none';"
+
+# Apply headers to sitemap.xml
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+    Content-Security-Policy = "default-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none';"
