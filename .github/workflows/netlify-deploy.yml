@@ -44,6 +44,7 @@ jobs:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
 
       - name: Run k6 Load Test
-        uses: grafana/k6-action@v0.3.1
+        uses: grafana/k6-action@4cbaf4c08f1a7bfa537d6113472ef4424e4eb654
         with:
           filename: k6/load-test.js
+
