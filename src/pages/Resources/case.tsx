@@ -11,6 +11,8 @@ import picture4 from '../../assets/images/enterprise-data-foundations-2025-ciner
 import picture5 from '../../assets/images/enterprise-architecture-modernisation-cinergie.png'
 import picture6 from '../../assets/images/digital-transformation-operating-model-cinergie.png'
 import picture7 from '../../assets/images/why-ai-pilots-fail-to-scale-cinergie.png'
+import picture8 from '../../assets/images/automation-readiness-enterprise-cinergie.png'
+import picture9 from '../../assets/images/api-enablement-enterprise-integration-cinergie.jpg'
 // import Connect from 'components/shared/Connect';
 
 const Resources = () => {
@@ -104,6 +106,24 @@ const Resources = () => {
       alt: "Cinergie Digital insights on why AI pilots fail to scale and how enterprises can move AI into production.",
       badge: "NEW",
       tags: ["#Enterprise AI", "#AI Deployment", "#AI Scaling"]
+    },
+    {
+      slug: "resources/automation-readiness-enterprise",
+      title: "Automation Readiness: Why Enterprises Automate Too Early",
+      desc: "Building automation readiness for sustainable enterprise operations.",
+      img: picture8,
+      alt: "Building automation readiness for sustainable enterprise operations.",
+      badge: "NEW",
+      tags: ["#Automation Readiness"]
+    },
+    {
+      slug: "case-studies/api-enablement-enterprise-ecosystem",
+      title: "API Enablement for Enterprise Ecosystem Integration | Cinergie Digital",
+      desc: "Learn how Cinergie Digital helped enterprise standardize and govern APIs to enable secure, scalable system and partner integration.",
+      img: picture9,
+      alt: "Cinergie Digital API enablement framework supporting secure and scalable enterprise system integrations.",
+      badge: "NEW",
+      tags: ["#API Enablement", "#System Integration", "#Enterprise Architecture"]
     }
   ];
 
@@ -328,7 +348,7 @@ const Resources = () => {
             </div>
           </div>
 
-          {/* Row 2: Small left, Long right (FLIPPED) */}
+          {/* Row 2: Long left, Small right (FLIPPED) */}
           <div className="services-grid">
             <div className="left-column">
               <Link to={`/${teamResources[9].slug}`} className="resource-card-link">
@@ -379,6 +399,60 @@ const Resources = () => {
               </Link>
             </div>
           </div>
+
+          <div className="services-grid services-grid-flipped">
+            <div className="left-column">
+              <Link to={`/${teamResources[10].slug}`} className="resource-card-link">
+                <div className="resource-card">
+                  <div className="card-image">
+                    <img src={teamResources[10].img} alt={teamResources[10].alt} />
+                    <div className="metric-badge">{teamResources[10].badge}</div>
+                  </div>
+                  <div className="resource-content">
+                    <h3 className="fw-medium subheading" style={{ fontFamily: 'Garet' }}>{teamResources[10].title}</h3>
+                    <p style={{ fontFamily: 'Garet' }}>{teamResources[10].desc}</p>
+
+                    <div className="resource-footer">
+                      <span className="cta-link" style={{ fontFamily: 'Garet', paddingRight: '10px' }}>Read More →</span>
+
+                      <div className="labels">
+                        {teamResources[10].tags.map((tag, i) => (
+                          <span key={i} className="label">{tag}</span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </div>
+
+
+            <div className="right-column">
+              <Link to={`/${teamResources[11].slug}`} className="resource-card-link">
+                <div className="resource-card">
+                  <div className="card-image">
+                    <img src={teamResources[11].img} alt={teamResources[11].alt} />
+                    <div className="metric-badge">{teamResources[11].badge}</div>
+                  </div>
+                  <div className="resource-content">
+                    <h3 className="fw-medium subheading" style={{ fontFamily: 'Garet' }}>{teamResources[11].title}</h3>
+                    <p style={{ fontFamily: 'Garet' }}>{teamResources[11].desc}</p>
+
+                    <div className="resource-footer">
+                      <span className="cta-link" style={{ fontFamily: 'Garet' }}>Read More →</span>
+
+                      <div className="labels">
+                        {teamResources[11].tags.map((tag, i) => (
+                          <span key={i} className="label">{tag}</span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          </div>
+
         </div>
       </section>
     </>
