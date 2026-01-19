@@ -71,7 +71,7 @@ const JobApplication = () => {
 
   // console.log('location.state:', location.state);
 
-   useEffect(() => {
+  useEffect(() => {
     if (!jobId) return;
 
     fetch(`https://api.cinergiedigital.com/recruitment/admin/get_job_by_id.php?job_id=${jobId}`)
@@ -120,7 +120,7 @@ const JobApplication = () => {
         }));
       formData.append('screening_questions', JSON.stringify(screeningAnswers));
 
-      // console.log('Form Data:', Object.fromEntries(formData));
+      console.log('Form Data:', Object.fromEntries(formData));
 
       const response = await fetch('https://api.cinergiedigital.com/recruitment/admin/save_application.php', {
         method: 'POST',
@@ -303,7 +303,7 @@ const JobApplication = () => {
               containerClass={'mb-3'}
               register={register}
               errors={errors}
-              control={control}                   required
+              control={control} required
               className="text-blue-600 underline hover:text-blue-800"
               style={{ width: '200px', fontSize: '0.9rem' }} // Smaller size and link-like style
             />
