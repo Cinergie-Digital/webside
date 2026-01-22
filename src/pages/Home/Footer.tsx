@@ -154,7 +154,7 @@ const Footer = () => {
                 <Row className="mt-5 pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
                     <Col md={6}>
                         <p className="text-muted mb-0" style={{ fontSize: '14px' }}>
-                            2025 © Cinergie Digital. All rights reserved.
+                            2026 © Cinergie Digital. All rights reserved.
                         </p>
                     </Col>
                     <Col md={6} className="text-md-end">

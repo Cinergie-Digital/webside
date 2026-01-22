@@ -51,7 +51,7 @@ const Services = () => {
       badge: "8-WEEK DELIVERY",
     },
     {
-      title: "Application Modernisation & Maintenance",
+      title: "Application Modernization & Maintenance",
       desc: [
         "Cloud migration & re-platforming",
         "API enablement & refactoring",
