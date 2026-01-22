@@ -33,6 +33,8 @@ const nintex = React.lazy(() => import('../pages/Products/nintex'));
 const bct = React.lazy(() => import('../pages/Products/bct'));
 const akinon = React.lazy(() => import('../pages/Products/akinon'));
 const whyaipilotsfailtoscale = React.lazy(() => import('../pages/Resources/why-ai-pilots-fail-to-scale'));
+const automationreadiness = React.lazy(() => import('../pages/Resources/Why-Most-Enterprises-Automate-Too-Early'));
+const apienablemententerpriseecosystem = React.lazy(() => import('../pages/Resources/API-Enablement-for-Enterprise-Ecosystem-Integration'));
 // const tibco = React.lazy(() => import('../pages/solutions/tibco'));
 // const singlestore = React.lazy(() => import('../pages/solutions/singlestore'));
 // // const yellow = React.lazy(() => import('../pages/solutions/yellow-ai'));
@@ -135,6 +137,14 @@ const AllRoutes = () => {
         {
             path: '/case-studies/predictive-intelligence-distributed-operations',
             element: <LoadComponent component={distributedOperations} />
+        },
+        {
+            path: '/case-studies/api-enablement-enterprise-ecosystem',
+            element: <LoadComponent component={apienablemententerpriseecosystem} />
+        },
+        {
+            path: '/resources/automation-readiness-enterprise',
+            element: <LoadComponent component={automationreadiness} />
         },
         {
             path: '/resources/2025-enterprise-data-foundations-for-ai-success',
