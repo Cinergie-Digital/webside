@@ -25,7 +25,7 @@ const Blog = () => {
     const fetchJobs = async (): Promise<void> => {
         // console.log(`http://recruitment.test/api/jobs`)
         try {
-            const response = await axios.get("https://api.cinergiedigital.com/recruitment/admin/api_jobs.php")
+            const response = await axios.get("http://localhost:8082/recruitment/admin/api_jobs.php")
             const jobsData: JobParameter[] = response.data.data
             setJobs(jobsData)
             // console.log("Job data: ", jobsData)
