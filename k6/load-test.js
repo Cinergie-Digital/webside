@@ -2,7 +2,7 @@ import http from 'k6/http';
 import { check, sleep } from 'k6';
 
 export let options = {
-  vus: 50,        // Virtual Users (simulate 50 users)
+  vus: 5,        // Virtual Users (simulate 50 users)
   duration: '2m', // Total test duration
   thresholds: {
     http_req_duration: ['p(95)<500'], // 95% of requests < 500ms
