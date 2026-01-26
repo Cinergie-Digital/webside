@@ -37,5 +37,17 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
 
-      
+    
+    run-test:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v4
+
+        - name: Setup K6
+          uses: grafana/setup-k6-action@v1
+        - name: Run local k6 test
+          uses: grafana/run-k6-action@v1
+          with:
+            path: load-test.js
 
