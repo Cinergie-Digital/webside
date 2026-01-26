@@ -48,4 +48,4 @@ jobs:
       - name: Run k6 load test
         uses: grafana/run-k6-action@v1
         with:
-          path: load-test.js
+          path: k6/load-test.js
