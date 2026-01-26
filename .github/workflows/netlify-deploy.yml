@@ -22,11 +22,11 @@ jobs:
       - name: Install dependencies
         run: npm ci --legacy-peer-deps
 
-      # Step 7: Build React app (only runs if tests pass)
+      # Step 4: Build React app
       - name: Build React App
         run: CI=false npm run build
 
-      # Step 8: Deploy to Netlify
+      # Step 5: Deploy to Netlify
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v3.0
         with:
@@ -37,17 +37,15 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
 
-    
-    run-test:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v4
+  
+  
+      - name: Checkout
+        uses: actions/checkout@v4
 
-        - name: Setup K6
-          uses: grafana/setup-k6-action@v1
-        - name: Run local k6 test
-          uses: grafana/run-k6-action@v1
-          with:
-            path: load-test.js
+      - name: Setup k6
+        uses: grafana/setup-k6-action@v1
 
+      - name: Run k6 load test
+        uses: grafana/run-k6-action@v1
+        with:
+          path: load-test.js
