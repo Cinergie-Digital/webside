@@ -31,3 +31,7 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 30
+      - name: OWASP ZAP Baseline Scan
+        uses: zaproxy/action-baseline@v0.11.0
+        with:
+          target: https://cinergiedigital.netlify.app
