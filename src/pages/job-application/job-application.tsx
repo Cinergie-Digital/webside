@@ -74,7 +74,7 @@ const JobApplication = () => {
   useEffect(() => {
     if (!jobId) return;
 
-    fetch(`http://localhost:8082/recruitment/admin/get_job_by_id.php?job_id=${jobId}`)
+    fetch(`https://api.cinergiedigital.com/recruitment/admin/get_job_by_id.php?job_id=${jobId}`)
       .then(res => res.json())
       .then(result => {
         if (result.status === 'success') {
@@ -122,7 +122,7 @@ const JobApplication = () => {
 
       console.log('Form Data:', Object.fromEntries(formData));
 
-      const response = await fetch('http://localhost:8082/recruitment/admin/save_application.php', {
+      const response = await fetch('https://api.cinergiedigital.com/recruitment/admin/save_application.php', {
         method: 'POST',
         body: formData,
       });
