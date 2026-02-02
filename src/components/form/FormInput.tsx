@@ -1,9 +1,11 @@
 import React, { InputHTMLAttributes } from 'react';
 import { Form, InputGroup } from 'react-bootstrap';
 
-import { FieldErrors, Control } from 'react-hook-form';
+import { FieldErrors, Control, RegisterOptions } from 'react-hook-form';
 
-interface FormInputProps extends InputHTMLAttributes<HTMLInputElement> {
+// extends InputHTMLAttributes<HTMLInputElement>
+
+interface FormInputProps {
     startIcon?: React.ReactNode;
     label?: string;
     type?: string;
@@ -11,6 +13,8 @@ interface FormInputProps extends InputHTMLAttributes<HTMLInputElement> {
     comp?: string;
     placeholder?: string;
     register?: any;
+    value?: string;
+    registerOptions?: RegisterOptions; // ✅ ADD THIS
     errors?: FieldErrors;
     control?: Control<any>;
     className?: string;
@@ -28,6 +32,7 @@ const TextualInput = ({
     name,
     placeholder,
     register,
+    registerOptions, // ✅
     errors,
     comp,
     rows,
@@ -48,7 +53,7 @@ const TextualInput = ({
                 }}
                 className={className}
                 isInvalid={errors && errors[name] ? true : false}
-                {...(register ? register(name) : {})}
+                {...(register ? register(name, registerOptions) : {})}
                 rows={rows}
                 {...otherProps}
             ></Form.Control>
@@ -88,7 +93,7 @@ const CheckInput = ({
                 }}
                 className={className}
                 isInvalid={errors && errors[name] ? true : false}
-                {...(register ? register(name) : {})}
+                {...(register ? register(name, otherProps.registerOptions) : {})}
                 {...otherProps}
             />
 
@@ -125,7 +130,7 @@ const SelectInput = ({
                 }}
                 className={className}
                 isInvalid={errors && errors[name] ? true : false}
-                {...(register ? register(name) : {})}
+                {...(register ? register(name, otherProps.registerOptions) : {})}
                 {...otherProps}
             />
 
@@ -209,7 +214,7 @@ const FormInput = ({
     return (
         <>
             {type === 'hidden' ? (
-                <input type={type} name={name} {...(register ? register(name) : {})} {...otherProps} />
+                <input type={type} name={name} {...(register ? register(name, otherProps.registerOptions) : {})} {...otherProps} />
             ) : (
                 <>
                     {type === 'checkbox' || type === 'radio' ? (

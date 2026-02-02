@@ -13,6 +13,7 @@ import picture6 from '../../assets/images/digital-transformation-operating-model
 import picture7 from '../../assets/images/why-ai-pilots-fail-to-scale-cinergie.png'
 import picture8 from '../../assets/images/automation-readiness-enterprise-cinergie.png'
 import picture9 from '../../assets/images/api-enablement-enterprise-integration-cinergie.jpg'
+import picture10 from '../../assets/images/airline-irrops-pss-disruption-management.png'
 // import Connect from 'components/shared/Connect';
 
 const Resources = () => {
@@ -124,6 +125,15 @@ const Resources = () => {
       alt: "Cinergie Digital API enablement framework supporting secure and scalable enterprise system integrations.",
       badge: "NEW",
       tags: ["#API Enablement", "#System Integration", "#Enterprise Architecture"]
+    },
+    {
+      slug: "case-studies/IRROPs-Management-In-Airlines",
+      title: "Airline IRROPs Management | Passenger Service System (PSS) Modernization",
+      desc: "Learn how airlines overcome IRROPs failures caused by legacy Passenger Service Systems (PSS) through disruption-aware architecture and real-time orchestration.",
+      img: picture10,
+      alt: "Airline operations control during IRROPs showing passenger service system disruption.",
+      badge: "NEW",
+      tags: ["#IRROPs Management", "#Passenger Service Systems (PSS)", "#Real-Time Orchestration"]
     }
   ];
 
@@ -453,6 +463,33 @@ const Resources = () => {
             </div>
           </div>
 
+          {/* Row 1: Long left, Small right */}
+          <div className="services-grid">
+            <div className="left-column">
+              <Link to={`/${teamResources[12].slug}`} className="resource-card-link">
+                <div className="resource-card">
+                  <div className="card-image">
+                    <img src={teamResources[12].img} alt={teamResources[12].alt} />
+                    <div className="metric-badge">{teamResources[12].badge}</div>
+                  </div>
+                  <div className="resource-content">
+                    <h3 className="fw-medium subheading" style={{ fontFamily: 'Garet' }}>{teamResources[12].title}</h3>
+                    <p style={{ fontFamily: 'Garet' }}>{teamResources[12].desc}</p>
+
+                    <div className="resource-footer">
+                      <span className="cta-link" style={{ fontFamily: 'Garet' }}>Read More →</span>
+
+                      <div className="labels">
+                        {teamResources[12].tags.map((tag, i) => (
+                          <span key={i} className="label">{tag}</span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
     </>
