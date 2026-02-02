@@ -15,9 +15,9 @@ const IRROPsManagementInAirlines = () => {
                 <article className="blog-article">
                     <header className="blog-header">
                         <h1
-                            className="hero-title"
+                            className="hero-title-irrops"
                             style={{
-                                fontSize: '3.2rem',
+                                fontSize: '3rem',
                                 fontWeight: 600,
                                 lineHeight: 1.2,
                                 fontFamily: 'Garet',
@@ -44,7 +44,7 @@ const IRROPsManagementInAirlines = () => {
                             What is not inevitable is the operational chaos that follows.
                         </p>
                         <p style={{ fontFamily: 'Garet' }}>
-                            Many airlines continue to rely on <strong style={{ fontFamily: 'Garet' }}>legacy Passenger Service Systems (PSS)</strong> that were originally designed for booking, ticketing, and inventory management — not for <strong style={{ fontFamily: 'Garet' }}>real-time airline disruption management</strong>. When IRROPs occur, these systems struggle to support recovery at scale, leading to downstream operational, commercial, and customer experience failures.
+                            Many airlines continue to rely on legacy Passenger Service Systems (PSS) that were originally designed for booking, ticketing, and inventory management — not for real-time airline disruption management. When IRROPs occur, these systems struggle to support recovery at scale, leading to downstream operational, commercial, and customer experience failures.
                         </p>
                     </section>
 
@@ -72,7 +72,7 @@ const IRROPsManagementInAirlines = () => {
                             <li>Passenger dissatisfaction even when flights eventually recover on time</li>
                         </ul>
                         <p style={{ fontFamily: 'Garet' }}>
-                            These failures are often attributed to people or processes. In reality, they are symptoms of <strong style={{ fontFamily: 'Garet' }}>system architecture limitations</strong>.
+                            These failures are often attributed to people or processes. In reality, they are symptoms of system architecture limitations.
                         </p>
                     </section>
 
@@ -85,7 +85,7 @@ const IRROPsManagementInAirlines = () => {
                             Limitations of Monolithic PSS Architectures
                         </h3>
                         <p style={{ fontFamily: 'Garet' }}>
-                            Traditional <strong style={{ fontFamily: 'Garet' }}>Passenger Service Systems (PSS)</strong> perform reliably under normal operating conditions. They handle:
+                            Traditional Passenger Service Systems (PSS) perform reliably under normal operating conditions. They handle:
                             <ul style={{ fontFamily: 'Garet' }}>
                                 <li>Bookings</li>
                                 <li>Inventory management</li>
@@ -93,7 +93,7 @@ const IRROPsManagementInAirlines = () => {
                             </ul>
                         </p>
                         <p style={{ fontFamily: 'Garet' }}>
-                            However, they were never designed to function as <strong style={{ fontFamily: 'Garet' }}>real-time airline disruption recovery engines</strong>.
+                            However, they were never designed to function as real-time airline disruption recovery engines.
                         </p>
                         <p style={{ fontFamily: 'Garet' }}>
                             Legacy PSS architectures lack native support for:
@@ -117,7 +117,7 @@ const IRROPsManagementInAirlines = () => {
                             </ul>
                         </p>
                         <p style={{ fontFamily: 'Garet' }}>
-                            Each system makes isolated decisions, but <strong style={{ fontFamily: 'Garet' }}>no single system owns the end-to-end recovery outcome</strong>. This fragmentation forces manual intervention, slows recovery, and introduces inconsistency across passenger journeys.
+                            Each system makes isolated decisions, but no single system owns the end-to-end recovery outcome. This fragmentation forces manual intervention, slows recovery, and introduces inconsistency across passenger journeys.
                         </p>
                     </section>
 
@@ -126,10 +126,10 @@ const IRROPsManagementInAirlines = () => {
                             Cinergie Digital’s Approach to Airline PSS Modernization
                         </h2>
                         <p style={{ fontFamily: 'Garet' }}>
-                            Rather than pursuing a high-risk rip-and-replace of core airline platforms, <strong style={{ fontFamily: 'Garet' }}>Cinergie Digital</strong> worked on a <strong style={{ fontFamily: 'Garet' }}>disruption-aware PSS extension architecture</strong> that operates alongside existing PSS and DCS environments.
+                            Rather than pursuing a high-risk rip-and-replace of core airline platforms, Cinergie Digital worked on a disruption-aware PSS extension architecture that operates alongside existing PSS and DCS environments.
                         </p>
                         <p style={{ fontFamily: 'Garet' }}>
-                            The objective was not to replace the Passenger Service System, but to <strong style={{ fontFamily: 'Garet' }}>orchestrate airline disruption recovery across systems</strong>.
+                            The objective was not to replace the Passenger Service System, but to orchestrate airline disruption recovery across systems.
                         </p>
 
                         <h3 className="fw-bold" style={{ fontFamily: 'Garet' }}>
@@ -214,7 +214,7 @@ const IRROPsManagementInAirlines = () => {
                             <li>Better protection of ancillary and rebooking revenue during recovery</li>
                         </ul>
                         <p style={{ fontFamily: 'Garet' }}>
-                            IRROPs handling shifted from <strong style={{ fontFamily: 'Garet' }}>reactive firefighting</strong> to <strong style={{ fontFamily: 'Garet' }}>controlled, system-led orchestration</strong>.
+                            IRROPs handling shifted from reactive firefighting to controlled, system-led orchestration.
                         </p>
                     </section>
 
@@ -223,10 +223,10 @@ const IRROPsManagementInAirlines = () => {
                             Key Takeaway: Airline Resilience Is a System Architecture Problem
                         </h2>
                         <p style={{ fontFamily: 'Garet' }}>
-                            Irregular operations do not fail airlines. <strong style={{ fontFamily: 'Garet' }}>Legacy Passenger Service System (PSS) architectures do</strong>.
+                            Irregular operations do not fail airlines. Legacy Passenger Service System (PSS) architectures do.
                         </p>
                         <p style={{ fontFamily: 'Garet' }}>
-                            In modern aviation, IRROPs resilience is no longer purely an operational challenge. It is a <strong style={{ fontFamily: 'Garet' }}>technology and decision-architecture problem</strong>.
+                            In modern aviation, IRROPs resilience is no longer purely an operational challenge. It is a technology and decision-architecture problem.
                         </p>
                         <p style={{ fontFamily: 'Garet' }}>
                             Airlines that treat disruption management as a system-level design concern; rather than a frontline execution issue, recover faster, protect revenue, and preserve passenger trust at scale.
