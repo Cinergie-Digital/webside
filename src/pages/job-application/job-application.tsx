@@ -6,7 +6,7 @@ import { FormInput } from 'components/form';
 // import { useRef, useState } from 'react';
 import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
-
+import { Spinner } from 'react-bootstrap';
 
 
 interface JobParameter {
@@ -49,6 +49,8 @@ const JobApplication = () => {
   };
 
   const methods = useForm({
+    mode: 'onBlur',            // 👈 validate when leaving field
+    reValidateMode: 'onBlur',  // 👈 re-validate again on blur
     defaultValues: {
       fullName: '',
       email: '',
@@ -84,8 +86,16 @@ const JobApplication = () => {
       .finally(() => setLoading(false));
   }, [jobId]);
 
-  if (loading) return <p>Loading job...</p>;
-  if (!jobParam) return <p>Job not found.</p>;
+  if (loading) return (<div className="d-flex justify-content-center align-items-center vh-100">
+    <div className="d-flex flex-column align-items-center gap-2">
+      <Spinner animation="border" variant="primary" role="status" />
+      <div>Loading Job</div>
+    </div>
+  </div>);
+  if (!jobParam) return <div className="d-flex justify-content-center align-items-center vh-100">
+    {/* <Spinner animation="border" variant="primary" role="status" /> */}
+    <div className='font-semibold'>No Job Found</div>
+  </div>;
 
   const sendApplication = async (data: any) => {
     try {
@@ -95,7 +105,7 @@ const JobApplication = () => {
       }
 
       // console.log('Form data before sending:', data);
-
+      console.log("CV: ", data.cv)
       const formData = new FormData();
       formData.append('job_id', jobParam.job_id.toString());
       formData.append('fullName', data.fullName);
@@ -164,7 +174,6 @@ const JobApplication = () => {
   try {
     if (jobParam?.screening_questions) {
       const rawQuestions: RawScreeningQuestion[] = JSON.parse(jobParam.screening_questions);
-
 
       screeningQuestions = rawQuestions
         .filter((q) => q.question_text)
@@ -239,7 +248,14 @@ const JobApplication = () => {
               register={register}
               errors={errors}
               control={control}
-              required
+              // required
+              registerOptions={{
+                required: 'Full name is required',
+                pattern: {
+                  value: /^[A-Za-z\s]+$/,
+                  message: 'Only alphabets are allowed',
+                }
+              }}
             />
           </Col>
           <Col md={6}>
@@ -252,7 +268,15 @@ const JobApplication = () => {
               register={register}
               errors={errors}
               control={control}
-              required
+              registerOptions={{
+                required: 'Email is required',
+                pattern: {
+                  value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                  message: 'Please enter a valid email address',
+                }
+              }}
+            // required
+
             />
           </Col>
           <Col md={6}>
@@ -265,7 +289,14 @@ const JobApplication = () => {
               register={register}
               errors={errors}
               control={control}
-              required
+              registerOptions={{
+                required: "Phone number is required",
+                pattern: {
+                  value: /^\+?[0-9]{10,15}$/,
+                  message: "Enter a valid phone number",
+                },
+              }}
+            // required
             />
           </Col>
           <Col md={6}>
@@ -278,7 +309,18 @@ const JobApplication = () => {
               register={register}
               errors={errors}
               control={control}
-              required
+              registerOptions={{
+                required: 'Experience is required',
+                min: {
+                  value: 0,
+                  message: 'Experience cannot be negative',
+                },
+                max: {
+                  value: 50,
+                  message: 'Please enter a valid number',
+                },
+              }}
+            // required
             />
           </Col>
           <Col md={6}>
@@ -291,7 +333,25 @@ const JobApplication = () => {
               register={register}
               errors={errors}
               control={control}
-              required
+              registerOptions={{
+                required: "CV is required",
+                validate: {
+                  fileType: (files) => {
+                    const allowedTypes = [
+                      "application/pdf",
+                      "application/msword",
+                      "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                      "text/plain"
+                    ];
+                    return files?.[0] && allowedTypes.includes(files[0].type)
+                      ? true
+                      : "Only PDF, DOC, DOCX, or TXT files are allowed";
+                  },
+                  fileSize: (files) =>
+                    files?.[0]?.size <= 10 * 1024 * 1024 || "File size must be under 10MB",
+                },
+              }}
+            // required
             />
           </Col>
           <Col md={6}>
@@ -303,9 +363,16 @@ const JobApplication = () => {
               containerClass={'mb-3'}
               register={register}
               errors={errors}
-              control={control} required
+              registerOptions={{
+                required: "LinkedIn profile is required",
+                pattern: {
+                  value: /^https?:\/\/(www\.)?linkedin\.com\/(in|company)\/[A-Za-z0-9-_%]+\/?$/,
+                  message: "Enter a valid LinkedIn profile URL",
+                },
+              }}
+              // control={control} required
               className="text-blue-600 underline hover:text-blue-800"
-              style={{ width: '200px', fontSize: '0.9rem' }} // Smaller size and link-like style
+            // style={{ width: '200px', fontSize: '0.9rem' }} // Smaller size and link-like style
             />
           </Col>
           <Col md={6}>
@@ -318,7 +385,14 @@ const JobApplication = () => {
               register={register}
               errors={errors}
               control={control}
-              required
+              registerOptions={{
+                required: "Notice period is required",
+                pattern: {
+                  value: /^[0-9]+$/,
+                  message: "Notice period must be a positive number",
+                },
+              }}
+            // required
             />
           </Col>
           <Col lg={12}>
@@ -333,7 +407,7 @@ const JobApplication = () => {
                 register={register}
                 errors={errors}
                 control={control}
-                required
+              // required
               />
               <FormInput
                 type="radio"
@@ -344,7 +418,7 @@ const JobApplication = () => {
                 register={register}
                 errors={errors}
                 control={control}
-                required
+              // required
               />
             </div>
           </Col>
@@ -366,7 +440,7 @@ const JobApplication = () => {
                       register={register}
                       errors={errors}
                       control={control}
-                      required
+                    // required
                     />
                   )}
                   {(question.type === 'yes_no' || question.type === 'mcq') && question.options && (

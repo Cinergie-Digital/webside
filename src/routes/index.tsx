@@ -35,6 +35,9 @@ const akinon = React.lazy(() => import('../pages/Products/akinon'));
 const whyaipilotsfailtoscale = React.lazy(() => import('../pages/Resources/why-ai-pilots-fail-to-scale'));
 const automationreadiness = React.lazy(() => import('../pages/Resources/Why-Most-Enterprises-Automate-Too-Early'));
 const apienablemententerpriseecosystem = React.lazy(() => import('../pages/Resources/API-Enablement-for-Enterprise-Ecosystem-Integration'));
+// import { Spinner } from 'react-bootstrap';
+const { Spinner } = require('react-bootstrap')
+const IRROPsManagementInAirlines = React.lazy(() => import('../pages/Resources/IRROPs-Management -In-Airlines'));
 // const tibco = React.lazy(() => import('../pages/solutions/tibco'));
 // const singlestore = React.lazy(() => import('../pages/solutions/singlestore'));
 // // const yellow = React.lazy(() => import('../pages/solutions/yellow-ai'));
@@ -43,7 +46,12 @@ const apienablemententerpriseecosystem = React.lazy(() => import('../pages/Resou
 // const bct = React.lazy(() => import('../pages/solutions/bct'));
 // const akinon = React.lazy(() => import('../pages/solutions/akinon'));
 
-const loading = () => <div className="loading">Loading...</div>; // Added a simple loading component
+const loading = () => (<div className="d-flex justify-content-center align-items-center vh-100">
+    <div className="d-flex flex-column align-items-center gap-2">
+        <Spinner animation="border" variant="primary" role="status" />
+        <div>Loading...</div>
+    </div>
+</div>) // Added a simple loading component
 
 type LoadComponentProps = {
     component: React.LazyExoticComponent<ComponentType>;
@@ -149,6 +157,10 @@ const AllRoutes = () => {
         {
             path: '/resources/2025-enterprise-data-foundations-for-ai-success',
             element: <LoadComponent component={enterpriseDataFoundations} />
+        },
+        {
+            path: '/case-studies/IRROPs-Management-In-Airlines',
+            element: <LoadComponent component={IRROPsManagementInAirlines} />
         },
         {
             path: '/resources/Enterprise-Architecture-Modernization',
