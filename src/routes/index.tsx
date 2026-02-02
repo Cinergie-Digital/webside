@@ -37,7 +37,7 @@ const automationreadiness = React.lazy(() => import('../pages/Resources/Why-Most
 const apienablemententerpriseecosystem = React.lazy(() => import('../pages/Resources/API-Enablement-for-Enterprise-Ecosystem-Integration'));
 // import { Spinner } from 'react-bootstrap';
 const { Spinner } = require('react-bootstrap')
-const IRROPsManagementInAirlines = React.lazy(() => import('../pages/Resources/IRROPs-Management -In-Airlines'));
+const IRROPsManagementInAirlines = React.lazy(() => import('../pages/Resources/IRROPs-Management-In-Airlines'));
 // const tibco = React.lazy(() => import('../pages/solutions/tibco'));
 // const singlestore = React.lazy(() => import('../pages/solutions/singlestore'));
 // // const yellow = React.lazy(() => import('../pages/solutions/yellow-ai'));
