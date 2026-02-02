@@ -54,6 +54,7 @@
   },
   "scripts": {
     "generate-sitemap": "node scripts/generate-sitemap.js",
+    "lint": "react-scripts lint",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
