@@ -175,7 +175,7 @@ const items = [
 <section className="py-5 bg-dark-blue"style={{backgroundColor: "#86878D" }}>
   <div className="container">
    <h2 className="text-center mb-5 fw-bold" style={{ color: "white",  fontFamily: 'Garet', fontSize: '2.5rem' }}>
-  How Cinergie Digital Delivers Secure, Compliant & Reliable IT Solutions
+  How Cinergie Digital Delivers Secure, Compliant & Reliable IT Solutions?
 </h2>
 
 
