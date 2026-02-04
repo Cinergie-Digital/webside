@@ -18,6 +18,13 @@ jobs:
       - name: Install dependencies
         run: npm ci --legacy-peer-deps
 
+      - name: Lint
+        run: npm run lint
+      
+
+      
+       
+
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
@@ -32,3 +39,4 @@ jobs:
           path: playwright-report/
           retention-days: 30
       
+   
