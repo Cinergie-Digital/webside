@@ -11,20 +11,20 @@ test('Save job application API should work', async ({ request }) => {
     '/recruitment/admin/save_application.php',
     {
       multipart: {
-        job_id: '1', // 🔴 must exist in DB
+        job_id: '82', // 🔴 must exist in DB
         fullName: 'CI Test User',
-        email: `ci_test_${Date.now()}@example.com`,
+        email: `ci_test_${Date.now()}@gmail.com`,
         phoneNo: '+923001234567',
         experience: '3',
         linkedin_profile: 'https://linkedin.com/in/citest',
         noticePeriod: '30',
         salaryPackage: 'Yes',
-        reference: 'CI',
+        reference: 'Linkdin',
         job_title: 'Frontend Developer',
         screening_questions: JSON.stringify([]),
         cv: {
           name: 'dummy-cv.txt',
-          mimeType: 'text/plain',
+          mimeType: 'application/pdf',
           buffer: fs.readFileSync(cvPath),
         },
       },
