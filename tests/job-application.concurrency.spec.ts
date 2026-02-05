@@ -17,7 +17,11 @@ test.describe('Job Application Concurrency Test', () => {
       reference: 'REF82',
       job_title: 'Frontend Developer',
       screening_questions: JSON.stringify([{ question: 'Do you know React?', answer: 'Yes' }]),
-      cv: fs.createReadStream('./tests/job-application/testCV.txt'), // small dummy file
+        cv: {
+      name: `testCV${userIndex}.txt`,
+      mimeType: 'application/pdf',
+      buffer: Buffer.from(`This is a test CV for user ${userIndex}`)
+    }
     };
   };
 
