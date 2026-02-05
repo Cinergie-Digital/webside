@@ -25,10 +25,12 @@ test.describe('Job Application Concurrency Test', () => {
     };
   };
 
+  
   test('Multiple users applying at the same time', async ({ request }) => {
-    // Create 5 concurrent requests
+    const userCount = 10; // Number of concurrent users
     const promises = [];
-    for (let i = 1; i <= 5; i++) {
+
+    for (let i = 1; i <= userCount; i++) {
       promises.push(
         request.post('https://api.cinergiedigital.com/recruitment/admin/save_application.php', {
           multipart: createFormData(i),
@@ -36,13 +38,24 @@ test.describe('Job Application Concurrency Test', () => {
       );
     }
 
-    // Run all at the same time
     const responses = await Promise.all(promises);
 
-    // Assert all responses
-    for (const response of responses) {
-      const body = await response.json();
-      expect(body.success).toBeTruthy();
+    let successCount = 0;
+    let failureCount = 0;
+
+    for (let i = 0; i < responses.length; i++) {
+      const body = await responses[i].json();
+      if (body.success) {
+        successCount++;
+        console.log(`User ${i + 1} applied successfully`);
+      } else {
+        failureCount++;
+        console.log(`User ${i + 1} FAILED to apply: ${body.message}`);
+      }
     }
+
+    console.log(`✅ Total Success: ${successCount}, ❌ Total Failures: ${failureCount}`);
+
+    expect(successCount).toBe(userCount); // Optional: fail test if any failed
   });
 });
