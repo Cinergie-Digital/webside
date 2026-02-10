@@ -10,7 +10,7 @@ test.describe('Contact Us Page - E2E Flow', () => {
     await page.goto('https://cinergiedigital.com/');
 
     // 2️⃣ Navigate to Contact Us page
-    await page.locator('a[href="/contact-us"]').first().click();
+    await page.locator('a[href="/contact"]').first().click();
 
     // 3️⃣ Wait for the contact form to load
     await expect(page.locator('text=Ready to Connect?')).toBeVisible({ timeout: 15000 });
