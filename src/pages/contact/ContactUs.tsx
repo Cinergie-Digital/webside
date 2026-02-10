@@ -40,7 +40,7 @@ const ContactUs = () => {
         try {
             if (form.current) {
                 const result = await emailjs.sendForm(
-                    'service_cy0b6yc',
+                    'service_6ox3elm',
                     'template_5x8jb8h',
                     form.current,
                     't5t-h48zRsZEmoh6H'
