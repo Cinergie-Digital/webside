@@ -83,7 +83,7 @@ const CaseStudies = () => {
         <div className="services-container">
           <h2>Explore Our Products</h2>
           <p className="hero-subtext">
-            Explore our products that empower digital transformation through data, automation, and innovation.
+            Explore our products that empower digital transformation through data, automation, and innovation
           </p>
           
           {/* Row 1: Long left, Small right */}
