@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test('User can apply for a job from Career page', async ({ page }) => {
 
   // 1️⃣ Go to website
-  await page.goto('https://synergydigital.com');
+  await page.goto('https://cinergiedigital.com/');
 
   // 2️⃣ Click on Careers
   await page.click('text=Careers');
