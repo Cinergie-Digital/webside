@@ -1,52 +1,45 @@
 import { test, expect } from '@playwright/test';
-import path from 'path';
 
 test.describe('Career Page - E2E Apply Flow', () => {
 
   test('User can apply for a job from Career page', async ({ page }) => {
 
-    // Generate unique email for every run
-    const uniqueEmail = `testuser_${Date.now()}@example.com`;
+    const uniqueEmail = `test${Date.now()}@example.com`;
 
-    // 1️⃣ Go to website
-    await page.goto('https://cinergiedigital.com/', {
-      waitUntil: 'domcontentloaded'
-    });
+    // 1️⃣ Open homepage
+    await page.goto('https://cinergiedigital.com/');
 
-    // 2️⃣ Click Careers link (more reliable locator)
+    // 2️⃣ Go to career page
     await page.locator('a[href="/career"]').first().click();
 
-
-    // 3️⃣ Wait for job list to appear
-    await expect(page.locator('.job-card').first()).toBeVisible({ timeout: 10000 });
+    // 3️⃣ Wait for job cards
+    await expect(page.locator('.job-card').first()).toBeVisible({ timeout: 15000 });
 
     // 4️⃣ Click first job
     await page.locator('.job-card').first().click();
 
-    // 5️⃣ Click Apply button
-    await page.getByRole('button', { name: /apply/i }).click();
+    // 5️⃣ Wait for Apply form to load
+    await expect(page.locator('text=Apply to the job')).toBeVisible({ timeout: 15000 });
 
-    // 6️⃣ Wait for form to be visible
-    const form = page.locator('form');
-    await expect(form).toBeVisible({ timeout: 10000 });
+    // 6️⃣ Fill form using correct name attributes
+    await page.fill('input[name="fullName"]', 'Test User');
+    await page.fill('input[name="email"]', uniqueEmail);
+    await page.fill('input[name="phoneNo"]', '03001234567');
+    await page.fill('input[name="experience"]', '3');
+    await page.fill('input[name="linkedIn"]', 'https://linkedin.com/in/testuser');
+    await page.fill('input[name="noticePeriod"]', '30');
 
-    // 7️⃣ Fill the form (robust selectors)
-    await page.getByLabel(/name/i).fill('Test User');
-    await page.getByLabel(/email/i).fill(uniqueEmail);
-    await page.getByLabel(/phone/i).fill('03001234567');
-    await page.getByLabel(/message/i).fill('This is automated E2E test.');
+    // 7️⃣ Select salary radio button
+    await page.check('input[name="salaryPackage"][value="Yes"]');
 
     // 8️⃣ Upload CV
-    const filePath = path.join(__dirname, 'test-cv.pdf');
-    await page.setInputFiles('input[type="file"]', filePath);
+    await page.setInputFiles('input[name="cv"]', 'tests/test-cv.pdf');
 
     // 9️⃣ Submit
-    await page.getByRole('button', { name: /submit/i }).click();
+    await page.click('button[type="submit"]');
 
-    // 🔟 Verify success message
-    await expect(
-      page.locator('text=Application submitted')
-    ).toBeVisible({ timeout: 10000 });
+    // 🔟 Wait for success modal
+    await expect(page.locator('text=Application Sent')).toBeVisible({ timeout: 15000 });
 
   });
 
