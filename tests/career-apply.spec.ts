@@ -14,7 +14,8 @@ test.describe('Career Page - E2E Apply Flow', () => {
     });
 
     // 2️⃣ Click Careers link (more reliable locator)
-    await page.getByRole('link', { name: /career/i }).click();
+    await page.locator('a[href="/career"]').first().click();
+
 
     // 3️⃣ Wait for job list to appear
     await expect(page.locator('.job-card').first()).toBeVisible({ timeout: 10000 });
