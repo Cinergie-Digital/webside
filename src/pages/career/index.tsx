@@ -58,38 +58,38 @@ const Blog = () => {
 
     return (
         <>
-           <div
-  className="bg-gradient2"
-  style={{
-    background: `url(${hero})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center', // Changed from 'top' to 'center' to show people at the bottom
-    position: 'relative',
-     height: '95vh',
-     
-  }}
->
-  <div
-    className="overlay"
-    style={{
-      position: 'absolute',
-      top: 50, // Assuming this is in px; if not, clarify unit (e.g., top: '50px')
-      width: '100%',
-      height: '100%',
-    //   background: 'rgba(0, 0, 0, 0.4)', // Add semi-transparent overlay for text readability if needed
-    }}
-  ></div>
-   
-                 <SEO
-          title="Careers at Cinergie Digital | Join a Growing Tech & AI Company in UAE "
-          description="Join Cinergie Digital and work on transformative technology projects shaping global enterprises. Build your future with us in UAE and beyond.  "
-          url="https://cinergiedigital.com/"
-        />
-   <Navbar5
-      isSticky={true}
-      hideSearch
+            <div
+                className="bg-gradient2"
+                style={{
+                    background: `url(${hero})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center', // Changed from 'top' to 'center' to show people at the bottom
+                    position: 'relative',
+                    height: '95vh',
 
-    />
+                }}
+            >
+                <div
+                    className="overlay"
+                    style={{
+                        position: 'absolute',
+                        top: 50, // Assuming this is in px; if not, clarify unit (e.g., top: '50px')
+                        width: '100%',
+                        height: '100%',
+                        //   background: 'rgba(0, 0, 0, 0.4)', // Add semi-transparent overlay for text readability if needed
+                    }}
+                ></div>
+
+                <SEO
+                    title="Careers at Cinergie Digital | Join a Growing Tech & AI Company in UAE "
+                    description="Join Cinergie Digital and work on transformative technology projects shaping global enterprises. Build your future with us in UAE and beyond.  "
+                    url="https://cinergiedigital.com/"
+                />
+                <Navbar5
+                    isSticky={true}
+                    hideSearch
+
+                />
 
                 <Hero />
             </div>
@@ -97,7 +97,7 @@ const Blog = () => {
             {/* <Team teamMembers={teamMembers} /> */}
 
             <Job jobParameters={jobs} />
-             <Connect title="Get In Touch" description="Get in touch with us today to learn more about how we can help you unlock the full potential of your organization through our IT services." />
+            <Connect title="Get In Touch" description="Get in touch with us today to learn more about how we can help you unlock the full potential of your organization through our IT services." />
             <Footer />
 
             <BackToTop />
