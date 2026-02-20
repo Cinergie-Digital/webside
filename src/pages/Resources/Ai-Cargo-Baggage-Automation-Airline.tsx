@@ -27,6 +27,7 @@ const AICargoBaggageAutomation = () => {
                         >
                             AI-Driven Cargo & Baggage Automation for Smart Airport Operations
                         </h1>
+                        <p className="blog-date" style={{ fontFamily: 'Garet' }}>February 20, 2026</p>
 
                         <img
                             src={coverImage}
