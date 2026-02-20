@@ -38,6 +38,7 @@ const apienablemententerpriseecosystem = React.lazy(() => import('../pages/Resou
 // import { Spinner } from 'react-bootstrap';
 const { Spinner } = require('react-bootstrap')
 const IRROPsManagementInAirlines = React.lazy(() => import('../pages/Resources/IRROPs-Management-In-Airlines'));
+const AICargoBaggageAutomation = React.lazy(() => import('../pages/Resources/Ai-Cargo-Baggage-Automation-Airline'))
 // const tibco = React.lazy(() => import('../pages/solutions/tibco'));
 // const singlestore = React.lazy(() => import('../pages/solutions/singlestore'));
 // // const yellow = React.lazy(() => import('../pages/solutions/yellow-ai'));
@@ -161,6 +162,10 @@ const AllRoutes = () => {
         {
             path: '/case-studies/IRROPs-Management-In-Airlines',
             element: <LoadComponent component={IRROPsManagementInAirlines} />
+        },
+        {
+            path: '/case-studies/ai-cargo-baggage-automation-airline',
+            element: <LoadComponent component={AICargoBaggageAutomation} />
         },
         {
             path: '/resources/Enterprise-Architecture-Modernization',
