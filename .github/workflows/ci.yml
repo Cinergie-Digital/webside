@@ -21,8 +21,14 @@ jobs:
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
+        with:
+          args: >
+            -Dsonar.organization=cinergie-digital
+            -Dsonar.projectKey=Cinergie-Digital_webside
+            -Dsonar.sources=.
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
