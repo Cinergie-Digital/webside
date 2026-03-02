@@ -14,6 +14,7 @@ import picture7 from '../../assets/images/why-ai-pilots-fail-to-scale-cinergie.p
 import picture8 from '../../assets/images/automation-readiness-enterprise-cinergie.png'
 import picture9 from '../../assets/images/api-enablement-enterprise-integration-cinergie.jpg'
 import picture10 from '../../assets/images/airline-irrops-pss-disruption-management.png'
+import picture11 from '../../assets/images/ai-cargo-baggage-automation-hero.png';
 // import Connect from 'components/shared/Connect';
 
 const Resources = () => {
@@ -134,6 +135,15 @@ const Resources = () => {
       alt: "Airline operations control during IRROPs showing passenger service system disruption.",
       badge: "NEW",
       tags: ["#IRROPs Management", "#Passenger Service Systems (PSS)", "#Real-Time Orchestration"]
+    },
+    {
+      slug: "case-studies/ai-cargo-baggage-automation-airline",
+      title: "Airline Cargo and Baggage Automation System",
+      desc: "AI-driven cargo and baggage automation for smarter airport operations.",
+      img: picture11,
+      alt: "AI-driven cargo trolley automation and passenger baggage tracking system in airline ground operations.",
+      badge: "NEW",
+      tags: ["#Airline Cargo Automation",]
     }
   ];
 
@@ -481,6 +491,30 @@ const Resources = () => {
 
                       <div className="labels">
                         {teamResources[12].tags.map((tag, i) => (
+                          <span key={i} className="label">{tag}</span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </div>
+            <div className="right-column">
+              <Link to={`/${teamResources[13].slug}`} className="resource-card-link">
+                <div className="resource-card">
+                  <div className="card-image">
+                    <img src={teamResources[13].img} alt={teamResources[13].alt} />
+                    <div className="metric-badge">{teamResources[13].badge}</div>
+                  </div>
+                  <div className="resource-content">
+                    <h3 className="fw-medium subheading" style={{ fontFamily: 'Garet' }}>{teamResources[13].title}</h3>
+                    <p style={{ fontFamily: 'Garet' }}>{teamResources[13].desc}</p>
+
+                    <div className="resource-footer">
+                      <span className="cta-link" style={{ fontFamily: 'Garet' }}>Read More →</span>
+
+                      <div className="labels">
+                        {teamResources[13].tags.map((tag, i) => (
                           <span key={i} className="label">{tag}</span>
                         ))}
                       </div>
