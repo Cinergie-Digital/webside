@@ -1,9 +1,7 @@
 import { Button, Row, Col, Modal } from 'react-bootstrap';
-// import { useLocation } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import FeatherIcon from 'feather-icons-react';
 import { FormInput } from 'components/form';
-// import { useRef, useState } from 'react';
 import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Spinner } from 'react-bootstrap';
@@ -62,16 +60,14 @@ const JobApplication = () => {
       salaryPackage: '',
     },
   });
-  // const location = useLocation();
+
   const { register, handleSubmit, control, formState: { errors }, reset } = methods;
 
-  // const jobParam = location.state as JobParameter;
   const { jobId } = useParams();
   const [jobParam, setJobParam] = useState<JobParameter | null>(null);
   const [loading, setLoading] = useState(true);
   const form = useRef<HTMLFormElement>(null);
 
-  // console.log('location.state:', location.state);
 
   useEffect(() => {
     if (!jobId) return;
@@ -100,11 +96,15 @@ const JobApplication = () => {
   const sendApplication = async (data: any) => {
     try {
       setIsSubmitting(true);
-      if (!jobParam || !jobParam.job_id) {
+      // if (!jobParam || !jobParam.job_id) {
+      //   throw new Error('Job ID is missing. Please select a job to apply for.');
+      // }
+
+      if (!jobParam?.job_id) {
         throw new Error('Job ID is missing. Please select a job to apply for.');
       }
 
-      // console.log('Form data before sending:', data);
+
       console.log("CV: ", data.cv)
       const formData = new FormData();
       formData.append('job_id', jobParam.job_id.toString());
@@ -118,9 +118,13 @@ const JobApplication = () => {
       formData.append('reference', jobParam.reference.toString());
       formData.append('job_title', jobParam.title.toString());
 
-      if (data.cv && data.cv[0]) {
+      if (data.cv?.[0]) {
         formData.append('cv', data.cv[0]);
       }
+
+      // if (data.cv && data.cv[0]) {
+      //   formData.append('cv', data.cv[0]);
+      // }
 
       const screeningAnswers = Object.keys(data)
         .filter((key) => key.startsWith('screening_'))
@@ -139,7 +143,7 @@ const JobApplication = () => {
 
       if (!response.ok) {
         const text = await response.text();
-        // console.error('Non-JSON response:', text);
+
         throw new Error(`Server returned ${response.status}: ${text}`);
       }
 
@@ -163,10 +167,10 @@ const JobApplication = () => {
 
   const onSubmit = async (data: any) => {
     if (!data) {
-      // console.log('Form is empty');
+
       return;
     }
-    // console.log('Form data submitted:', data);
+
     await sendApplication(data);
   };
 
