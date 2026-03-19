@@ -1,6 +1,6 @@
 // Updated AllRoutes component - ensure the import is added
 import React, { Suspense, ComponentType } from 'react';
-import { useRoutes } from 'react-router-dom';
+import { useRoutes, Navigate } from 'react-router-dom';
 
 const Home = React.lazy(() => import('../pages/Home'));
 const services = React.lazy(() => import('../pages/services'));
@@ -39,6 +39,7 @@ const apienablemententerpriseecosystem = React.lazy(() => import('../pages/Resou
 const { Spinner } = require('react-bootstrap')
 const IRROPsManagementInAirlines = React.lazy(() => import('../pages/Resources/IRROPs-Management-In-Airlines'));
 const AICargoBaggageAutomation = React.lazy(() => import('../pages/Resources/Ai-Cargo-Baggage-Automation-Airline'))
+const BlogDetail = React.lazy(() => import('../pages/Resources/BlogDetail'))
 // const tibco = React.lazy(() => import('../pages/solutions/tibco'));
 // const singlestore = React.lazy(() => import('../pages/solutions/singlestore'));
 // // const yellow = React.lazy(() => import('../pages/solutions/yellow-ai'));
@@ -123,63 +124,67 @@ const AllRoutes = () => {
             path: '/case-studies/enterprisedelivery',
             element: <LoadComponent component={enterpriseDeliveryCase} />
         },
+        // {
+        //     path: '/real-time-order-stream',
+        //     element: <LoadComponent component={realTimeOrderStream} />
+        // },
+        // {
+        //     path: '/reimagining-loan-origination',
+        //     element: <LoadComponent component={reimaginingloanorigination} />
+        // },
+        // {
+        //     path: '/Predictive-Freight-Intelligence',
+        //     element: <LoadComponent component={PredictiveFreightIntelligence} />
+        // },
+        // {
+        //     path: '/Regulatory-Reporting-Automation',
+        //     element: <LoadComponent component={RegulatoryReportingAutomation} />
+        // },
+        // {
+        //     path: '/Resources/enterprise-digital-transformation-insights-2025-2026',
+        //     element: <LoadComponent component={whatChanged} />
+        // },
+        // {
+        //     path: '/case-studies/predictive-intelligence-distributed-operations',
+        //     element: <LoadComponent component={distributedOperations} />
+        // },
+        // {
+        //     path: '/case-studies/api-enablement-enterprise-ecosystem',
+        //     element: <LoadComponent component={apienablemententerpriseecosystem} />
+        // },
+        // {
+        //     path: '/resources/automation-readiness-enterprise',
+        //     element: <LoadComponent component={automationreadiness} />
+        // },
         {
-            path: '/real-time-order-stream',
-            element: <LoadComponent component={realTimeOrderStream} />
+            path: '/blog/:slug',
+            element: <LoadComponent component={BlogDetail} />
         },
-        {
-            path: '/reimagining-loan-origination',
-            element: <LoadComponent component={reimaginingloanorigination} />
-        },
-        {
-            path: '/Predictive-Freight-Intelligence',
-            element: <LoadComponent component={PredictiveFreightIntelligence} />
-        },
-        {
-            path: '/Regulatory-Reporting-Automation',
-            element: <LoadComponent component={RegulatoryReportingAutomation} />
-        },
-        {
-            path: '/Resources/enterprise-digital-transformation-insights-2025-2026',
-            element: <LoadComponent component={whatChanged} />
-        },
-        {
-            path: '/case-studies/predictive-intelligence-distributed-operations',
-            element: <LoadComponent component={distributedOperations} />
-        },
-        {
-            path: '/case-studies/api-enablement-enterprise-ecosystem',
-            element: <LoadComponent component={apienablemententerpriseecosystem} />
-        },
-        {
-            path: '/resources/automation-readiness-enterprise',
-            element: <LoadComponent component={automationreadiness} />
-        },
-        {
-            path: '/resources/2025-enterprise-data-foundations-for-ai-success',
-            element: <LoadComponent component={enterpriseDataFoundations} />
-        },
-        {
-            path: '/case-studies/IRROPs-Management-In-Airlines',
-            element: <LoadComponent component={IRROPsManagementInAirlines} />
-        },
-        {
-            path: '/case-studies/ai-cargo-baggage-automation-airline',
-            element: <LoadComponent component={AICargoBaggageAutomation} />
-        },
-        {
-            path: '/resources/Enterprise-Architecture-Modernization',
-            element: <LoadComponent component={enterprisearchitecturemodernization} />
-        },
+        // {
+        //     path: '/resources/2025-enterprise-data-foundations-for-ai-success',
+        //     element: <LoadComponent component={enterpriseDataFoundations} />
+        // },
+        // {
+        //     path: '/case-studies/IRROPs-Management-In-Airlines',
+        //     element: <LoadComponent component={IRROPsManagementInAirlines} />
+        // },
+        // {
+        //     path: '/case-studies/ai-cargo-baggage-automation-airline',
+        //     element: <LoadComponent component={AICargoBaggageAutomation} />
+        // },
+        // {
+        //     path: '/resources/Enterprise-Architecture-Modernization',
+        //     element: <LoadComponent component={enterprisearchitecturemodernization} />
+        // },
 
-        {
-            path: '/resources/Why-Digital-Transformation-Fails',
-            element: <LoadComponent component={whydigitaltransformationfails} />
-        },
-        {
-            path: '/resources/Why-AI-Pilots-Fail-To-Scale',
-            element: <LoadComponent component={whyaipilotsfailtoscale} />
-        },
+        // {
+        //     path: '/resources/Why-Digital-Transformation-Fails',
+        //     element: <LoadComponent component={whydigitaltransformationfails} />
+        // },
+        // {
+        //     path: '/resources/Why-AI-Pilots-Fail-To-Scale',
+        //     element: <LoadComponent component={whyaipilotsfailtoscale} />
+        // },
         {
             path: '/Resources',
             element: <LoadComponent component={team} />
@@ -205,6 +210,14 @@ const AllRoutes = () => {
             path: '/Industries',
             element: <LoadComponent component={digitalplatformoutcomes} />
         },
+        // {
+        //     path: '*', // <-- Catch-all route for 404
+        //     element: <LoadComponent component={Home} /> // Redirect to Home
+        // },
+        {
+            path: '*',
+            element: <Navigate to="/" replace />
+        }
     ]);
 };
 

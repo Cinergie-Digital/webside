@@ -1,119 +1,136 @@
  .blog-container {
-  max-width: 850px;
-  margin: 0 auto;
-  padding: 80px 20px;
-  background: #fff;
-  color: #111;
-  font-family: 'Inter', sans-serif;
-  line-height: 1.7;
-  font-Family: 'Garet'
-}
+   max-width: 850px;
+   margin: 0 auto;
+   padding: 80px 20px;
+   background: #fff;
+   color: #111;
+   font-family: 'Inter', sans-serif;
+   line-height: 1.7;
+   font-Family: 'Garet'
+ }
 
-.blog-header {
-  text-align: left;
-  margin-bottom: 40px;
-  font-Family: 'Garet'
-}
+ .blog-header {
+   text-align: left;
+   margin-bottom: 40px;
+   font-Family: 'Garet'
+ }
 
-.blog-header h1 {
-  font-size: 3.2rem;
-  font-weight: 600;
-  color: #111;
-  margin-bottom: 10px;
-  font-Family: 'Garet'
-}
+ .blog-header h1 {
+   font-size: 3.2rem;
+   font-weight: 600;
+   color: #111;
+   margin-bottom: 10px;
+   font-Family: 'Garet'
+ }
 
-.blog-date {
-  font-size: 1rem;
-  color: #777;
-  margin-bottom: 20px;
-}
+ .blog-date {
+   font-size: 1rem;
+   color: #777;
+   margin-bottom: 20px;
+ }
 
-.blog-cover {
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 40px;
-  object-fit: cover;
-}
+ .blog-cover {
+   width: 100%;
+   border-radius: 8px;
+   margin-bottom: 40px;
+   object-fit: cover;
+ }
 
-.blog-article section {
-  margin-bottom: 50px;
-}
+ .blog-article section {
+   margin-bottom: 50px;
+ }
 
-.blog-article h2 {
-  font-size: 2.5rem;
-  font-weight: 600;
-  margin-bottom: 16px;
-  color: #222;
-}
+ .blog-article h2 {
+   font-size: 2.5rem;
+   font-weight: 600;
+   margin-bottom: 16px;
+   color: #222;
+ }
 
-.blog-article p {
-  font-size: 1rem;
-  color: #333;
-  margin-bottom: 16px;
-}
+ .blog-article p {
+   font-size: 1rem;
+   color: #333;
+   margin-bottom: 16px;
+ }
 
-.blog-article ul {
-  margin: 16px 0 16px 20px;
-}
+ .blog-article ul {
+   margin: 16px 0 16px 20px;
+ }
 
-.blog-article li {
-  margin-bottom: 10px;
-  font-size: 1rem;
-}
+ .blog-article li {
+   margin-bottom: 10px;
+   font-size: 1rem;
+ }
 
-.blog-inline-image {
-  width: 100%;
-  border-radius: 6px;
-  margin-top: 25px;
-}
+ .blog-article a {
+   color: #3ea8d4;
+ }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .blog-container {
-    padding: 60px 15px;
-  }
-  .blog-header h1 {
-    font-size: 2rem;
-  }
-  .blog-article h2 {
-    font-size: 2rem;
-  }
-}
-/* Mobile Navbar - Move hamburger to right and ensure h1 visibility */
-@media (max-width: 991px) {
-    .navbar > .container,
-    .navbar > .container-fluid {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
+ .blog-article a:hover {
+   text-decoration: underline;
+   /* optional */
+ }
 
-    .navbar-toggler {
-        order: 2;
-        margin-left: auto;
-    }
+ .blog-inline-image {
+   width: 100%;
+   border-radius: 6px;
+   margin-top: 25px;
+ }
 
-    .navbar-brand {
-        order: 1;
-        margin-right: auto;
-        flex-shrink: 0; /* Prevent shrinking */
-        display: block !important; /* Ensure visibility */
-    }
+ /* Responsive */
+ @media (max-width: 768px) {
+   .blog-container {
+     padding: 60px 15px;
+   }
 
-    .navbar-brand h1 {
-        display: block !important;
-        visibility: visible !important;
-        margin: 0;
-        font-size: clamp(1.2rem, 4vw, 1.5rem); /* Responsive font size */
-        line-height: 1.2;
-        white-space: nowrap; /* Prevent wrapping if needed */
-        overflow: visible;
-    }
+   .blog-header h1 {
+     font-size: 2rem;
+   }
 
-    .navbar-collapse {
-        order: 3;
-        width: 100%;
-    }
-}
+   .blog-article h2 {
+     font-size: 2rem;
+   }
+ }
+
+ /* Mobile Navbar - Move hamburger to right and ensure h1 visibility */
+ @media (max-width: 991px) {
+
+   .navbar>.container,
+   .navbar>.container-fluid {
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+     align-items: center;
+   }
+
+   .navbar-toggler {
+     order: 2;
+     margin-left: auto;
+   }
+
+   .navbar-brand {
+     order: 1;
+     margin-right: auto;
+     flex-shrink: 0;
+     /* Prevent shrinking */
+     display: block !important;
+     /* Ensure visibility */
+   }
+
+   .navbar-brand h1 {
+     display: block !important;
+     visibility: visible !important;
+     margin: 0;
+     font-size: clamp(1.2rem, 4vw, 1.5rem);
+     /* Responsive font size */
+     line-height: 1.2;
+     white-space: nowrap;
+     /* Prevent wrapping if needed */
+     overflow: visible;
+   }
+
+   .navbar-collapse {
+     order: 3;
+     width: 100%;
+   }
+ }
