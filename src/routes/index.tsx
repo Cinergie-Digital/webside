@@ -124,67 +124,67 @@ const AllRoutes = () => {
             path: '/case-studies/enterprisedelivery',
             element: <LoadComponent component={enterpriseDeliveryCase} />
         },
-        // {
-        //     path: '/real-time-order-stream',
-        //     element: <LoadComponent component={realTimeOrderStream} />
-        // },
-        // {
-        //     path: '/reimagining-loan-origination',
-        //     element: <LoadComponent component={reimaginingloanorigination} />
-        // },
-        // {
-        //     path: '/Predictive-Freight-Intelligence',
-        //     element: <LoadComponent component={PredictiveFreightIntelligence} />
-        // },
-        // {
-        //     path: '/Regulatory-Reporting-Automation',
-        //     element: <LoadComponent component={RegulatoryReportingAutomation} />
-        // },
-        // {
-        //     path: '/Resources/enterprise-digital-transformation-insights-2025-2026',
-        //     element: <LoadComponent component={whatChanged} />
-        // },
-        // {
-        //     path: '/case-studies/predictive-intelligence-distributed-operations',
-        //     element: <LoadComponent component={distributedOperations} />
-        // },
-        // {
-        //     path: '/case-studies/api-enablement-enterprise-ecosystem',
-        //     element: <LoadComponent component={apienablemententerpriseecosystem} />
-        // },
-        // {
-        //     path: '/resources/automation-readiness-enterprise',
-        //     element: <LoadComponent component={automationreadiness} />
-        // },
+        {
+            path: '/real-time-order-stream',
+            element: <LoadComponent component={realTimeOrderStream} />
+        },
+        {
+            path: '/reimagining-loan-origination',
+            element: <LoadComponent component={reimaginingloanorigination} />
+        },
+        {
+            path: '/Predictive-Freight-Intelligence',
+            element: <LoadComponent component={PredictiveFreightIntelligence} />
+        },
+        {
+            path: '/Regulatory-Reporting-Automation',
+            element: <LoadComponent component={RegulatoryReportingAutomation} />
+        },
+        {
+            path: '/Resources/enterprise-digital-transformation-insights-2025-2026',
+            element: <LoadComponent component={whatChanged} />
+        },
+        {
+            path: '/case-studies/predictive-intelligence-distributed-operations',
+            element: <LoadComponent component={distributedOperations} />
+        },
+        {
+            path: '/case-studies/api-enablement-enterprise-ecosystem',
+            element: <LoadComponent component={apienablemententerpriseecosystem} />
+        },
+        {
+            path: '/resources/automation-readiness-enterprise',
+            element: <LoadComponent component={automationreadiness} />
+        },
         {
             path: '/blog/:slug',
             element: <LoadComponent component={BlogDetail} />
         },
-        // {
-        //     path: '/resources/2025-enterprise-data-foundations-for-ai-success',
-        //     element: <LoadComponent component={enterpriseDataFoundations} />
-        // },
-        // {
-        //     path: '/case-studies/IRROPs-Management-In-Airlines',
-        //     element: <LoadComponent component={IRROPsManagementInAirlines} />
-        // },
-        // {
-        //     path: '/case-studies/ai-cargo-baggage-automation-airline',
-        //     element: <LoadComponent component={AICargoBaggageAutomation} />
-        // },
-        // {
-        //     path: '/resources/Enterprise-Architecture-Modernization',
-        //     element: <LoadComponent component={enterprisearchitecturemodernization} />
-        // },
+        {
+            path: '/resources/2025-enterprise-data-foundations-for-ai-success',
+            element: <LoadComponent component={enterpriseDataFoundations} />
+        },
+        {
+            path: '/case-studies/IRROPs-Management-In-Airlines',
+            element: <LoadComponent component={IRROPsManagementInAirlines} />
+        },
+        {
+            path: '/case-studies/ai-cargo-baggage-automation-airline',
+            element: <LoadComponent component={AICargoBaggageAutomation} />
+        },
+        {
+            path: '/resources/Enterprise-Architecture-Modernization',
+            element: <LoadComponent component={enterprisearchitecturemodernization} />
+        },
 
-        // {
-        //     path: '/resources/Why-Digital-Transformation-Fails',
-        //     element: <LoadComponent component={whydigitaltransformationfails} />
-        // },
-        // {
-        //     path: '/resources/Why-AI-Pilots-Fail-To-Scale',
-        //     element: <LoadComponent component={whyaipilotsfailtoscale} />
-        // },
+        {
+            path: '/resources/Why-Digital-Transformation-Fails',
+            element: <LoadComponent component={whydigitaltransformationfails} />
+        },
+        {
+            path: '/resources/Why-AI-Pilots-Fail-To-Scale',
+            element: <LoadComponent component={whyaipilotsfailtoscale} />
+        },
         {
             path: '/Resources',
             element: <LoadComponent component={team} />
