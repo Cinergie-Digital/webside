@@ -36,6 +36,8 @@ const BlogDetail = () => {
         }
     };
 
+    const cleanContent = blog?.content?.replace(/<h([1-6])[^>]*>/g, "<h$1>");
+
     if (loading) {
         return (<div className="d-flex justify-content-center align-items-center vh-100">
             <div className="d-flex flex-column align-items-center gap-2">
@@ -89,10 +91,13 @@ const BlogDetail = () => {
                     </header>
 
                     {/* Blog Content from API */}
+
                     <section
+                        className="blog-content"
                         style={{ fontFamily: "Garet" }}
-                        dangerouslySetInnerHTML={{ __html: blog.content }}
+                        dangerouslySetInnerHTML={{ __html: cleanContent }}
                     />
+
                 </article>
             </main>
 
