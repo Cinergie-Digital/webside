@@ -36,7 +36,9 @@ const BlogDetail = () => {
         }
     };
 
-    const cleanContent = blog?.content?.replace(/<h([1-6])[^>]*>/g, "<h$1>");
+    // const cleanContent = blog?.content?.replace(/<h([1-6])[^>]*>/g, "<h$1>");
+    const cleanContent = blog?.content;
+    console.log("Blog:", blog);
 
     if (loading) {
         return (<div className="d-flex justify-content-center align-items-center vh-100">
@@ -67,15 +69,7 @@ const BlogDetail = () => {
             <main className="blog-container">
                 <article className="blog-article">
                     <header className="blog-header">
-                        <h1
-                            className="hero-title"
-                            style={{
-                                fontSize: "3.2rem",
-                                fontWeight: 600,
-                                lineHeight: 1.2,
-                                fontFamily: "Garet"
-                            }}
-                        >
+                        <h1>
                             {blog.title}
                         </h1>
 
@@ -91,7 +85,6 @@ const BlogDetail = () => {
                     </header>
 
                     {/* Blog Content from API */}
-
                     <section
                         className="blog-content"
                         style={{ fontFamily: "Garet" }}
