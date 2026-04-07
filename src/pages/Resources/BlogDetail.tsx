@@ -36,9 +36,7 @@ const BlogDetail = () => {
         }
     };
 
-    // const cleanContent = blog?.content?.replace(/<h([1-6])[^>]*>/g, "<h$1>");
     const cleanContent = blog?.content;
-    console.log("Blog:", blog);
 
     if (loading) {
         return (<div className="d-flex justify-content-center align-items-center vh-100">
