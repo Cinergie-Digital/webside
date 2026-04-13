@@ -85,7 +85,7 @@ const BlogDetail = () => {
                     {/* Blog Content from API */}
                     <section
                         className="blog-content"
-                        style={{ fontFamily: "Garet" }}
+                        style={{ fontFamily: "Garet !important" }}
                         dangerouslySetInnerHTML={{ __html: cleanContent }}
                     />
 
