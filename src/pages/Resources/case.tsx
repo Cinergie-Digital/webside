@@ -81,49 +81,53 @@ const Resources = () => {
                   key={index}
                   className={`services-grid ${isFlipped ? "services-grid-flipped" : ""}`}
                 >
-                  {row.map((blog: any, i) => (
-                    <div
-                      key={i}
-                      className={i === 0 ? "left-column" : "right-column"}
-                    >
-                      <Link to={`/blog/${blog.slug}`} className="resource-card-link">
-                        <div className="resource-card">
-                          <div className="card-image">
-                            <img src={blog?.img} alt={blog?.alt} />
-                            <div className="metric-badge">{blog?.badge}</div>
-                          </div>
+                  {row.map((blog: any, i) => {
+                    const isSmallCard =
+                      (!isFlipped && i === 1) || (isFlipped && i === 0);
+                    return (
+                      <div
+                        key={i}
+                        className={i === 0 ? "left-column" : "right-column"}
+                      >
+                        <Link to={`/blog/${blog.slug}`} className="resource-card-link">
+                          <div className="resource-card">
+                            <div className="card-image">
+                              <img src={blog?.img} alt={blog?.alt} />
+                              <div className="metric-badge">{blog?.badge}</div>
+                            </div>
 
-                          <div className="resource-content">
-                            <h3
-                              className="fw-medium subheading"
-                              style={{ fontFamily: "Garet" }}
-                            >
-                              {blog?.title}
-                            </h3>
-
-                            <p style={{ fontFamily: "Garet" }}>{blog?.desc}</p>
-
-                            <div className="resource-footer">
-                              <span
-                                className="cta-link"
+                            <div className="resource-content">
+                              <h3
+                                className="fw-medium subheading"
                                 style={{ fontFamily: "Garet" }}
                               >
-                                Read More →
-                              </span>
+                                {blog?.title}
+                              </h3>
 
-                              <div className="labels">
-                                {blog?.tags.map((tag: any, t: any) => (
-                                  <span key={t} className="label">
-                                    {tag}
-                                  </span>
-                                ))}
+                              <p style={{ fontFamily: "Garet" }}>{isSmallCard ? blog?.desc.slice(0, 35) + "..." : blog?.desc}</p>
+
+                              <div className="resource-footer">
+                                <span
+                                  className="cta-link"
+                                  style={{ fontFamily: "Garet" }}
+                                >
+                                  Read More →
+                                </span>
+
+                                <div className="labels">
+                                  {blog?.tags.map((tag: any, t: any) => (
+                                    <span key={t} className="label">
+                                      {tag}
+                                    </span>
+                                  ))}
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </Link>
-                    </div>
-                  ))}
+                        </Link>
+                      </div>
+                    )
+                  })}
                 </div>
               );
             })
