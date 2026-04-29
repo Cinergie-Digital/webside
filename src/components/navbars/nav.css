@@ -1,8 +1,6 @@
-
-
-
 .navbar-transparents {
-  background-color: #0B121D !important; /* dark background */
+  background-color: #0B121D !important;
+  /* dark background */
   color: white !important;
   transition: all 0.3s ease;
 }
@@ -12,6 +10,91 @@
   color: white !important;
   transition: all 0.3s ease;
 }
+
 .navbar-transparents .nav-link {
   color: white !important;
 }
+
+/* Ensure consistent padding for dropdown toggles */
+.navbar-nav .nav-link.dropdown-toggle {
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+/* Hide default Bootstrap dropdown arrow */
+.navbar-nav .dropdown-toggle::after {
+  display: none !important;
+}
+
+/* Custom chevron styling */
+.dropdown-chevron {
+  display: inline-block;
+  margin-left: 0.25rem;
+  font-size: 0.75rem;
+  transition: transform 0.3s ease;
+  transform: rotate(0deg);
+}
+
+/* Desktop: Rotate chevron on hover/open */
+@media (min-width: 992px) {
+  .navbar-nav .dropdown.show .dropdown-chevron {
+    transform: rotate(180deg);
+  }
+
+  .navbar .dropdown:hover .dropdown-chevron {
+    transform: rotate(180deg);
+  }
+
+  .navbar-nav .dropdown:focus-within .dropdown-chevron {
+    transform: rotate(180deg);
+  }
+}
+
+/* Mobile dropdown styling */
+@media (max-width: 991.98px) {
+  .navbar-nav .dropdown-menu {
+    position: static !important;
+    transform: none !important;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    padding-left: 1.5rem;
+    margin-top: 0;
+  }
+
+  .navbar-nav .dropdown-menu .dropdown-item {
+    padding: 0.5rem 1rem;
+    color: inherit;
+  }
+
+  /* Rotate chevron when dropdown is open on mobile */
+  .navbar-nav .dropdown.show .dropdown-chevron {
+    transform: rotate(180deg);
+  }
+
+  /* Make dropdown title clickable on mobile */
+  .navbar-nav .dropdown-toggle {
+    cursor: pointer;
+  }
+}
+
+/* @media (max-width: 991.98px) {
+  .navbar-nav .dropdown-menu {
+    position: static !important;
+    transform: none !important;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    padding-left: 1.5rem;
+  }
+
+  .navbar-nav .dropdown-menu .dropdown-item {
+    padding: 0.5rem 1rem;
+    color: inherit;
+  }
+
+  .navbar-nav .dropdown-toggle::after {
+    display: none;
+  
+  }
+} */
