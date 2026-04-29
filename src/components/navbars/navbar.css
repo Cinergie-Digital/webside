@@ -21,12 +21,45 @@
 .logo img {
   vertical-align: middle;
 }
-/* Open dropdown on hover */
-.navbar .dropdown:hover .dropdown-menu {
-  display: block;
-  margin-top: 0;
+
+/* Ensure consistent padding for dropdown toggles */
+.navbar-nav .nav-link.dropdown-toggle {
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
 }
+
+/* Hide default Bootstrap dropdown arrow */
+.navbar-nav .dropdown-toggle::after {
+  display: none !important;
+}
+
+/* Custom chevron styling */
+.dropdown-chevron {
+  display: inline-block;
+  margin-left: 0.25rem;
+  font-size: 0.75rem;
+  transition: transform 0.2s ease;
+  transform: rotate(0deg);
+}
+
+/* Rotate chevron when dropdown is open (click/tap) */
+.navbar-nav .dropdown.show .dropdown-chevron {
+  transform: rotate(180deg);
+}
+
+/* Desktop: Rotate chevron on hover/open */
+@media (min-width: 992px) {
+  .navbar .dropdown:hover .dropdown-chevron {
+    transform: rotate(180deg);
+  }
+
+  .navbar-nav .dropdown:focus-within .dropdown-chevron {
+    transform: rotate(180deg);
+  }
+}
+
 @media (max-width: 768px) {
+
   /* Initial state: Keep navbar transparent */
   .navbar {
     background-color: transparent !important;
@@ -69,10 +102,13 @@
 
   /* Hamburger toggler - always visible with proper contrast */
   .navbar-toggler {
-    border: none !important; /* Remove border for clean look */
+    border: none !important;
+    /* Remove border for clean look */
     background-color: transparent !important;
-    padding: 4px !important; /* Compact padding */
-    z-index: 10 !important; /* Ensure on top */
+    padding: 4px !important;
+    /* Compact padding */
+    z-index: 10 !important;
+    /* Ensure on top */
   }
 
   /* Initial hamburger icon (white lines on transparent) */
@@ -99,8 +135,10 @@
   /* Mobile menu: Instant white bg on open, no delay */
   .navbar-collapse {
     background-color: transparent !important;
-    transition: none !important; /* Remove transition for instant bg */
-    opacity: 0 !important; /* Hide initially */
+    transition: none !important;
+    /* Remove transition for instant bg */
+    opacity: 0 !important;
+    /* Hide initially */
     visibility: hidden !important;
   }
 
@@ -112,13 +150,15 @@
     /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important; */
     opacity: 1 !important;
     visibility: visible !important;
-    transition: opacity 0.2s ease !important; /* Quick fade for content */
+    transition: opacity 0.2s ease !important;
+    /* Quick fade for content */
   }
 
   /* Ensure menu content (text/links) doesn't show before bg */
   .navbar-collapse .navbar-nav {
     opacity: 0;
-    transition: opacity 0.2s ease 0.05s !important; /* Slight delay for bg to set */
+    transition: opacity 0.2s ease 0.05s !important;
+    /* Slight delay for bg to set */
   }
 
   .navbar-collapse.show .navbar-nav {

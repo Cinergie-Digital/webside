@@ -4,11 +4,13 @@ import { useRoutes, Navigate } from 'react-router-dom';
 
 const Home = React.lazy(() => import('../pages/Home'));
 const services = React.lazy(() => import('../pages/services'));
-const team = React.lazy(() => import('../pages/Resources'));
+const blogs = React.lazy(() => import('../pages/Resources/index-blog'));
+const caseStudies = React.lazy(() => import('../pages/Resources/index-case'));
 const product = React.lazy(() => import('../pages/Products'));
 const career = React.lazy(() => import('../pages/career'));
 const jobapplication = React.lazy(() => import('../pages/job-application'));
 const contact = React.lazy(() => import('../pages/contact'));
+const demos = React.lazy(() => import('../pages/demos'));
 const digitalplatformcomponents = React.lazy(() => import('../pages/About-us'));
 const digitalplatformoutcomes = React.lazy(() => import('../pages/Industries'));
 const bfsiCase = React.lazy(() => import('../pages/Industries/bfsi'));
@@ -40,6 +42,7 @@ const { Spinner } = require('react-bootstrap')
 const IRROPsManagementInAirlines = React.lazy(() => import('../pages/Resources/IRROPs-Management-In-Airlines'));
 const AICargoBaggageAutomation = React.lazy(() => import('../pages/Resources/Ai-Cargo-Baggage-Automation-Airline'))
 const BlogDetail = React.lazy(() => import('../pages/Resources/BlogDetail'))
+const CaseDetail = React.lazy(() => import('../pages/Resources/CaseDetails'))
 // const tibco = React.lazy(() => import('../pages/solutions/tibco'));
 // const singlestore = React.lazy(() => import('../pages/solutions/singlestore'));
 // // const yellow = React.lazy(() => import('../pages/solutions/yellow-ai'));
@@ -103,6 +106,10 @@ const AllRoutes = () => {
             path: '/contact',
             element: <LoadComponent component={contact} />
         },
+        {
+            path: '/demos',
+            element: <LoadComponent component={demos} />
+        },
 
         {
             path: '/case-studies/bfsi',
@@ -160,6 +167,10 @@ const AllRoutes = () => {
             path: '/blog/:slug',
             element: <LoadComponent component={BlogDetail} />
         },
+        {
+            path: '/case-study/:slug',
+            element: <LoadComponent component={CaseDetail} />
+        },
         // {
         //     path: '/resources/2025-enterprise-data-foundations-for-ai-success',
         //     element: <LoadComponent component={enterpriseDataFoundations} />
@@ -186,12 +197,22 @@ const AllRoutes = () => {
         //     element: <LoadComponent component={whyaipilotsfailtoscale} />
         // },
         {
-            path: '/Resources',
-            element: <LoadComponent component={team} />
+            path: '/blogs',
+            element: <LoadComponent component={blogs} />
         },
 
         {
-            path: '/career',
+            path: '/case-studies',
+            element: <LoadComponent component={caseStudies} />
+        },
+
+        {
+            path: '/demos',
+            element: <LoadComponent component={demos} />
+        },
+
+        {
+            path: '/careers',
             element: <LoadComponent component={career} />
         },
         {

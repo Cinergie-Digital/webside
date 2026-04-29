@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import classNames from 'classnames';
 import "./navbar.css";
 
@@ -13,10 +13,13 @@ type NavbarProps = {
     buttonClass?: string;
     fixedWidth?: boolean;
     hideSearch?: boolean;
+    forceLightBrand?: boolean;
 };
 
-const Navbar5 = ({ isSticky, navClass, buttonClass, fixedWidth, hideSearch }: NavbarProps) => {
+const Navbar5 = ({ isSticky, navClass, buttonClass, fixedWidth, hideSearch, forceLightBrand }: NavbarProps) => {
     const [scrolled, setScrolled] = useState(false);
+    const [showWhatWeDo, setShowWhatWeDo] = useState(false);
+    const [showInsights, setShowInsights] = useState(false);
 
     useEffect(() => {
         if (!isSticky) return;
@@ -46,13 +49,9 @@ const Navbar5 = ({ isSticky, navClass, buttonClass, fixedWidth, hideSearch }: Na
     }, [isSticky]);
 
     // Combine default navClass with scroll-based background change
-    const combinedNavClass = classNames(
-        'topnav-menu',
-        navClass,
-        scrolled ? 'navbar-light bg-white shadow-sm' : 'navbar-transparent text-white'
-    );
+    const combinedNavClass = classNames('topnav-menu', navClass, forceLightBrand ? 'navbar-transparent text-white' : scrolled ? 'navbar-light bg-white shadow-sm' : 'navbar-transparent text-white');
 
-    const logoSrc = scrolled ? logo : logoLight;
+    const logoSrc = forceLightBrand ? logoLight : scrolled ? logo : logoLight;
 
     return (
         <header>
@@ -90,12 +89,42 @@ const Navbar5 = ({ isSticky, navClass, buttonClass, fixedWidth, hideSearch }: Na
                         <Nav className="ms-auto align-items-center">
                             <Nav.Link href="/" className="px-3">Home</Nav.Link>
                             <Nav.Link href="/About-us" className="px-3">About Us</Nav.Link>
-                            <Nav.Link href="/Industries" className="px-3">Industries</Nav.Link>
-                            {/* ✅ New Products Dropdown */}
-                           <Nav.Link href="/Products" className="px-3">Products</Nav.Link>
-                            <Nav.Link href="/services" className="px-3">Services</Nav.Link>
-                            <Nav.Link href="/Resources" className="px-3">Resources</Nav.Link>
-                            <Nav.Link href="/career" className="px-3">Career</Nav.Link>
+
+                            {/* What We Do Dropdown */}
+                            <NavDropdown
+                                title={
+                                    <>
+                                        What We Do <span className="dropdown-chevron">▼</span>
+                                    </>
+                                }
+                                id="what-we-do-dropdown"
+                                renderMenuOnMount={true}
+                                show={showWhatWeDo}
+                                onToggle={(nextShow) => setShowWhatWeDo(!!nextShow)}
+                            >
+                                <NavDropdown.Item href="/Products">Products</NavDropdown.Item>
+                                <NavDropdown.Item href="/services">Services</NavDropdown.Item>
+                                <NavDropdown.Item href="/Industries">Industries</NavDropdown.Item>
+                            </NavDropdown>
+
+                            {/* Insights Dropdown */}
+                            <NavDropdown
+                                title={
+                                    <>
+                                        Insights <span className="dropdown-chevron">▼</span>
+                                    </>
+                                }
+                                id="insights-dropdown"
+                                renderMenuOnMount={true}
+                                show={showInsights}
+                                onToggle={(nextShow) => setShowInsights(!!nextShow)}
+                            >
+                                <NavDropdown.Item href="/blogs">Blogs</NavDropdown.Item>
+                                <NavDropdown.Item href="/case-studies">Case Studies</NavDropdown.Item>
+                                <NavDropdown.Item href="/demos">Demos</NavDropdown.Item>
+                            </NavDropdown>
+
+                            <Nav.Link href="/careers" className="px-3">Careers</Nav.Link>
                             <Nav.Link href="/contact" className="px-3">Contact</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>

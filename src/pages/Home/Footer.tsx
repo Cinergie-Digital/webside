@@ -17,20 +17,20 @@ const Footer = () => {
                                 <img src={logoLight} alt="logo" height="50" className="d-inline-block align-top mb-4" />
                             </Link>
                             <div className="footer-address">
-                                
+
                                 <p className="text-muted mb-0" style={{ fontSize: '14px', lineHeight: '1.8' }}>
                                     Office 1701, The Binary, Al Abraj Street, Business Bay, Dubai, UAE
                                 </p>
-                                 <div className="footer-get-in-touch">
-                           
-                            <p className="text-muted mb-2" style={{ fontSize: '14px', lineHeight: '1.8' }}>
-                                <a href="mailto:info@cinergiedigital.com" className="text-muted" style={{ textDecoration: 'none' }}>
-                                    info@cinergiedigital.com
-                                </a>
-                            </p>
-                            
-                            <p className="text-muted mb-0" style={{ fontSize: '14px' }}>+971 4 551 4344</p>
-                        </div>
+                                <div className="footer-get-in-touch">
+
+                                    <p className="text-muted mb-2" style={{ fontSize: '14px', lineHeight: '1.8' }}>
+                                        <a href="mailto:info@cinergiedigital.com" className="text-muted" style={{ textDecoration: 'none' }}>
+                                            info@cinergiedigital.com
+                                        </a>
+                                    </p>
+
+                                    <p className="text-muted mb-0" style={{ fontSize: '14px' }}>+971 4 551 4344</p>
+                                </div>
                             </div>
                         </div>
                     </Col>
@@ -66,10 +66,26 @@ const Footer = () => {
                                 </li>
                                 <li className="mb-2">
                                     <Link
-                                        to="team"
+                                        to="/blogs"
                                         className="text-muted"
                                         style={{ fontSize: '14px', textDecoration: 'none' }}>
-                                        Resources
+                                        Blogs
+                                    </Link>
+                                </li>
+                                <li className="mb-2">
+                                    <Link
+                                        to="/case-studies"
+                                        className="text-muted"
+                                        style={{ fontSize: '14px', textDecoration: 'none' }}>
+                                        Case Studies
+                                    </Link>
+                                </li>
+                                <li className="mb-2">
+                                    <Link
+                                        to="/demos"
+                                        className="text-muted"
+                                        style={{ fontSize: '14px', textDecoration: 'none' }}>
+                                        Demos
                                     </Link>
                                 </li>
                             </ul>
@@ -101,55 +117,55 @@ const Footer = () => {
                                         Healthcare
                                     </HashLink>
                                 </li>
-                              <li className="mb-2">
+                                <li className="mb-2">
                                     <HashLink to="/case-studies/enterprisedelivery" className="text-muted" style={{ fontSize: '14px', textDecoration: 'none' }}>
-                                       Enterprise Delivery
+                                        Enterprise Delivery
                                     </HashLink>
                                 </li>
                             </ul>
                         </div>
                     </Col>
-                    
+
                     {/* Get in Touch */}
                     <Col lg={3} md={4} className="mb-4 mb-lg-0">
                         <div className="footer-get-in-touch">
                             <h6 className="text-white mb-3 fw-semibold" style={{ fontSize: '16px' }}>Products</h6>
-                                                    
-                                
-                                    <ul className="list-unstyled">
-                                        <li className="my-2">
-                                            <Link to="/solutions/tibco" className="text-muted">
-                                                TIBCO
-                                            </Link>
-                                        </li>
-                                        <li className="my-2">
-                                            <Link to="/solutions/singlestore" className="text-muted">
-                                                SingleStore
-                                            </Link>
-                                        </li>
-                                        <li className="my-2">
-                                            <Link to="/solutions/nintex" className="text-muted">
-                                                Nintex
-                                            </Link>
-                                        </li>
-                                       
-                                        <li className="my-2">
-                                            <Link to="/solutions/bct" className="text-muted">
-                                                BCT
-                                            </Link>
-                                        </li>
-                                        <li className="my-2">
-                                            <Link to="/solutions/akinon" className="text-muted">
-                                                Akinon
-                                            </Link>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </Col>
- </Row>
-                            
-                            
-                 
+
+
+                            <ul className="list-unstyled">
+                                <li className="my-2">
+                                    <Link to="/solutions/tibco" className="text-muted">
+                                        TIBCO
+                                    </Link>
+                                </li>
+                                <li className="my-2">
+                                    <Link to="/solutions/singlestore" className="text-muted">
+                                        SingleStore
+                                    </Link>
+                                </li>
+                                <li className="my-2">
+                                    <Link to="/solutions/nintex" className="text-muted">
+                                        Nintex
+                                    </Link>
+                                </li>
+
+                                <li className="my-2">
+                                    <Link to="/solutions/bct" className="text-muted">
+                                        BCT
+                                    </Link>
+                                </li>
+                                <li className="my-2">
+                                    <Link to="/solutions/akinon" className="text-muted">
+                                        Akinon
+                                    </Link>
+                                </li>
+                            </ul>
+                        </div>
+                    </Col>
+                </Row>
+
+
+
 
                 <Row className="mt-5 pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
                     <Col md={6}>

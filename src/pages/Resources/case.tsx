@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Spinner } from 'react-bootstrap';
 
 const API_URL =
-  "https://api.cinergiedigital.com/recruitment/admin/get_blogs.php";
+  "https://api.cinergiedigital.com/recruitment/admin/get_casestudies.php";
 
 const Resources = () => {
   const [blogs, setBlogs] = useState([]);
@@ -66,7 +66,7 @@ const Resources = () => {
       <section className="resources-section">
         <div className="resources-container">
           <h2 className="fw-bold" style={{ fontFamily: "Garet" }}>
-            Explore Cinergie Digital's Blogs, Guides & Case Studies
+            Explore Cinergie Digital's Case Studies
           </h2>
 
 
@@ -89,7 +89,7 @@ const Resources = () => {
                         key={i}
                         className={i === 0 ? "left-column" : "right-column"}
                       >
-                        <Link to={`/blog/${blog.slug}`} className="resource-card-link">
+                        <Link to={`/case-study/${blog.slug}`} className="resource-card-link">
                           <div className="resource-card">
                             <div className="card-image">
                               <img src={blog?.img} alt={blog?.alt} />
