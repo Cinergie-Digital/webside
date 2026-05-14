@@ -5,7 +5,7 @@ import BackToTop from 'components/BackToTop';
 import Footer from 'pages/Home/Footer';
 import Connect from 'components/shared/Connect';
 import SEO from 'components/SEO';
-import csm from '../../assets/images/csm-demo.png'
+import csm from '../../assets/images/cinergie-motors.png'
 import mobily from '../../assets/images/mobily-demo.png'
 
 import './styles.css';
@@ -35,7 +35,7 @@ const demoItems: DemoItem[] = [
         title: 'Digital concerage for Automanufactures',
         description:
             'Chatbot for the automotive industry that handles user queries about car models, availability, dealership locations, and company policies such as servicing etc.',
-        demoUrl: 'https://demos.cinergiedigital.com/csm',
+        demoUrl: 'https://demos.cinergiedigital.com/cinergie-motors/',
         image: csm,
     },
 ];
