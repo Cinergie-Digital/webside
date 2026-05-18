@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 
 import { Navbar5 } from 'components/navbars';
@@ -7,6 +8,7 @@ import Connect from 'components/shared/Connect';
 import SEO from 'components/SEO';
 import csm from '../../assets/images/cinergie-motors.png'
 import mobily from '../../assets/images/mobily-demo.png'
+import assistantVideo from '../../assets/videos/Power-BI-Assistant.mp4'
 
 import './styles.css';
 
@@ -15,9 +17,65 @@ type DemoItem = {
     tag: string;
     title: string;
     description: string;
-    demoUrl: string;
+    demoUrl?: string;
+    videoUrl?: string;
     image?: string;
 };
+
+// ── Video Modal ──────────────────────────────────────────────────────────────
+
+type VideoModalProps = {
+    videoUrl: string;
+    onClose: () => void;
+};
+
+const VideoModal = ({ videoUrl, onClose }: VideoModalProps) => {
+    const videoRef = useRef<HTMLVideoElement>(null);
+
+    // Close on Escape key
+    useEffect(() => {
+        const handleKey = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') onClose();
+        };
+        document.addEventListener('keydown', handleKey);
+        // Prevent body scroll while modal is open
+        document.body.style.overflow = 'hidden';
+        return () => {
+            document.removeEventListener('keydown', handleKey);
+            document.body.style.overflow = '';
+        };
+    }, [onClose]);
+
+    // Click on the backdrop (not the video) closes the modal
+    const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (e.target === e.currentTarget) onClose();
+    };
+
+    return (
+        <div className="video-modal-backdrop" onClick={handleBackdropClick}>
+            <div className="video-modal-container">
+                <button
+                    className="video-modal-close"
+                    onClick={onClose}
+                    aria-label="Close video"
+                >
+                    ✕
+                </button>
+                <video
+                    ref={videoRef}
+                    src={videoUrl}
+                    controls
+                    autoPlay
+                    className="video-modal-player"
+                >
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    );
+};
+
+// ── Demo data ────────────────────────────────────────────────────────────────
 
 const demoItems: DemoItem[] = [
     {
@@ -38,9 +96,23 @@ const demoItems: DemoItem[] = [
         demoUrl: 'https://demos.cinergiedigital.com/cinergie-motors/',
         image: csm,
     },
+    {
+        id: 3,
+        tag: 'AI / ML',
+        title: 'AI Assistant for Power BI',
+        description:
+            'An AI-powered extension for Power BI dashboards that allows users to interact with charts and reports using natural language. It provides intelligent insights, answers data-related questions, and helps users understand dashboard trends more efficiently.',
+        // Replace the path below with your actual video file or URL
+        videoUrl: assistantVideo,
+        // image: yourDemoImage,   ← add an image import + uncomment if you have one
+    },
 ];
 
+// ── Page ─────────────────────────────────────────────────────────────────────
+
 const Demos = () => {
+    const [activeVideo, setActiveVideo] = useState<string | null>(null);
+
     return (
         <div className="demos-page" style={{ fontFamily: "Garet" }}>
             <SEO
@@ -50,6 +122,7 @@ const Demos = () => {
             />
 
             <Navbar5 isSticky hideSearch forceLightBrand />
+
             <div className="demos-hero">
                 <Container>
                     <div className="demos-hero-content">
@@ -78,19 +151,42 @@ const Demos = () => {
                                         ) : (
                                             <div className={`demo-card-visual visual-${demo.id}`} />
                                         )}
+
+                                        {/* Play button overlay — only for video demos */}
+                                        {demo.videoUrl && (
+                                            <button
+                                                className="demo-card-play-btn"
+                                                onClick={() => setActiveVideo(demo.videoUrl!)}
+                                                aria-label={`Play demo video for ${demo.title}`}
+                                            >
+                                                <span className="demo-card-play-icon">▶</span>
+                                            </button>
+                                        )}
                                     </div>
+
                                     <div className="demo-card-body">
                                         <span className="demo-card-tag">{demo.tag}</span>
                                         <h3>{demo.title}</h3>
                                         <p>{demo.description}</p>
-                                        <a
-                                            href={demo.demoUrl}
-                                            target="_blank"
-                                            rel="noreferrer"
-                                            className="demo-card-link"
-                                        >
-                                            View Live Demo
-                                        </a>
+
+                                        {/* Render link OR "Watch Demo" button depending on the demo type */}
+                                        {demo.demoUrl ? (
+                                            <a
+                                                href={demo.demoUrl}
+                                                target="_blank"
+                                                rel="noreferrer"
+                                                className="demo-card-link"
+                                            >
+                                                View Live Demo
+                                            </a>
+                                        ) : demo.videoUrl ? (
+                                            <button
+                                                className="demo-card-link demo-card-link--video"
+                                                onClick={() => setActiveVideo(demo.videoUrl!)}
+                                            >
+                                                Watch Demo
+                                            </button>
+                                        ) : null}
                                     </div>
                                 </article>
                             </Col>
@@ -105,6 +201,14 @@ const Demos = () => {
             />
             <Footer />
             <BackToTop />
+
+            {/* Video modal — rendered at the end so it sits above everything */}
+            {activeVideo && (
+                <VideoModal
+                    videoUrl={activeVideo}
+                    onClose={() => setActiveVideo(null)}
+                />
+            )}
         </div>
     );
 };
