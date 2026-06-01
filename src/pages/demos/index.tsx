@@ -84,7 +84,7 @@ const demoItems: DemoItem[] = [
         title: 'AI enabled HR portal',
         description:
             'HR portal with leave management, payslip access, and an AI chatbot that answers queries using dashboard data and company documents, with support for English and Arabic.',
-        demoUrl: 'https://crm.cinergiedigital.com',
+        demoUrl: 'https://hr.cinergiedigital.com/login',
         image: mobily,
     },
     {
@@ -93,7 +93,7 @@ const demoItems: DemoItem[] = [
         title: 'Digital concerage for Automanufactures',
         description:
             'Chatbot for the automotive industry that handles user queries about car models, availability, dealership locations, and company policies such as servicing etc.',
-        demoUrl: 'https://demos.cinergiedigital.com/cinergie-motors/',
+        demoUrl: 'https://cm.cinergiedigital.com/cinergie-motors',
         image: csm,
     },
     {
