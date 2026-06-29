@@ -9,6 +9,7 @@ import SEO from 'components/SEO';
 import csm from '../../assets/images/cinergie-motors.png'
 import mobily from '../../assets/images/mobily-demo.png'
 import assistantVideo from '../../assets/videos/Power-BI-Assistant.mp4'
+import callAgentVideo from "../../assets/videos/call-agent.mp4"
 
 import './styles.css';
 
@@ -104,6 +105,16 @@ const demoItems: DemoItem[] = [
             'An AI-powered extension for Power BI dashboards that allows users to interact with charts and reports using natural language. It provides intelligent insights, answers data-related questions, and helps users understand dashboard trends more efficiently.',
         // Replace the path below with your actual video file or URL
         videoUrl: assistantVideo,
+        // image: yourDemoImage,   ← add an image import + uncomment if you have one
+    },
+    {
+        id: 4,
+        tag: 'AI / ML',
+        title: 'AI Customer Care Voice Agent',
+        description:
+            'An intelligent voice-based customer support agent capable of handling inbound calls, answering customer inquiries, providing information from a knowledge base, and delivering natural, human-like conversations. Designed to enhance customer experience, reduce support workload, and provide reliable 24/7 assistance.',
+        // Replace the path below with your actual video file or URL
+        videoUrl: callAgentVideo,
         // image: yourDemoImage,   ← add an image import + uncomment if you have one
     },
 ];
