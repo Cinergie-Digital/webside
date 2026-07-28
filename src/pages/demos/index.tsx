@@ -101,7 +101,7 @@ const demoItems: DemoItem[] = [
     {
         id: 3,
         tag: 'AI / ML',
-        title: 'Healthcare Intelligence Platform',
+        title: 'Cinergie HMS',
         description:
             'Explore a working prototype of Cinergie HMS, built to show how patient registration, lab workflows, and hospital-wide visibility come together in one system. Click through the modules below to see the platform in action.',
         demoUrl: 'http://13.229.78.75/hip/',
