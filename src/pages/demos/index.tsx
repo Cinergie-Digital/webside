@@ -10,6 +10,7 @@ import csm from '../../assets/images/cinergie-motors.png'
 import mobily from '../../assets/images/mobily-demo.png'
 import assistantVideo from '../../assets/videos/Power-BI-Assistant.mp4'
 import callAgentVideo from "../../assets/videos/call-agent.mp4"
+import hip from "../../assets/images/hip.png"
 
 import './styles.css';
 
@@ -100,6 +101,15 @@ const demoItems: DemoItem[] = [
     {
         id: 3,
         tag: 'AI / ML',
+        title: 'Healthcare Intelligence Platform',
+        description:
+            'Explore a working prototype of Cinergie HMS, built to show how patient registration, lab workflows, and hospital-wide visibility come together in one system. Click through the modules below to see the platform in action.',
+        demoUrl: 'http://13.229.78.75/hip/',
+        image: hip,
+    },
+    {
+        id: 4,
+        tag: 'AI / ML',
         title: 'AI Assistant for Power BI',
         description:
             'An AI-powered extension for Power BI dashboards that allows users to interact with charts and reports using natural language. It provides intelligent insights, answers data-related questions, and helps users understand dashboard trends more efficiently.',
@@ -108,7 +118,7 @@ const demoItems: DemoItem[] = [
         // image: yourDemoImage,   ← add an image import + uncomment if you have one
     },
     {
-        id: 4,
+        id: 5,
         tag: 'AI / ML',
         title: 'AI Customer Care Voice Agent',
         description:

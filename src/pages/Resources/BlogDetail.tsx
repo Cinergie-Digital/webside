@@ -6,6 +6,7 @@ import Footer from "pages/Home/Footer";
 import BackToTop from "components/BackToTop";
 import Connect from "components/shared/Connect";
 import { Spinner } from 'react-bootstrap';
+import { Helmet } from "react-helmet-async";
 import "./styles.css";
 
 const BlogDetail = () => {
