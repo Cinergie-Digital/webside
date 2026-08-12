@@ -13,7 +13,7 @@ import callAgentVideo from "../../assets/videos/call-agent.mp4"
 import hip from "../../assets/images/hip.png"
 import wms from "../../assets/images/wms-demo.png"
 
-import './styles.css';
+import './styles.css'
 
 type DemoItem = {
     id: number;
