@@ -11,6 +11,7 @@ import mobily from '../../assets/images/mobily-demo.png'
 import assistantVideo from '../../assets/videos/Power-BI-Assistant.mp4'
 import callAgentVideo from "../../assets/videos/call-agent.mp4"
 import hip from "../../assets/images/hip.png"
+import wms from "../../assets/images/wms-demo.png"
 
 import './styles.css';
 
@@ -109,6 +110,15 @@ const demoItems: DemoItem[] = [
     },
     {
         id: 4,
+        tag: 'ERP',
+        title: 'WMS',
+        description:
+            'A live walkthrough of WMS Pro: real-time stock visibility, barcode-confirmed picking, and multi-warehouse control, built for how distributors actually run day to day.',
+        demoUrl: 'https://wms.cinergiedigital.com/login',
+        image: wms,
+    },
+    {
+        id: 5,
         tag: 'AI / ML',
         title: 'AI Assistant for Power BI',
         description:
@@ -118,7 +128,7 @@ const demoItems: DemoItem[] = [
         // image: yourDemoImage,   ← add an image import + uncomment if you have one
     },
     {
-        id: 5,
+        id: 6,
         tag: 'AI / ML',
         title: 'AI Customer Care Voice Agent',
         description:
