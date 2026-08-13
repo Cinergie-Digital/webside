@@ -111,7 +111,7 @@ const demoItems: DemoItem[] = [
     {
         id: 4,
         tag: 'ERP',
-        title: 'WMS',
+        title: 'WMS Pro',
         description:
             'A live walkthrough of WMS Pro: real-time stock visibility, barcode-confirmed picking, and multi-warehouse control, built for how distributors actually run day to day.',
         demoUrl: 'https://wms.cinergiedigital.com/login',
@@ -135,7 +135,6 @@ const demoItems: DemoItem[] = [
             'An intelligent voice-based customer support agent capable of handling inbound calls, answering customer inquiries, providing information from a knowledge base, and delivering natural, human-like conversations. Designed to enhance customer experience, reduce support workload, and provide reliable 24/7 assistance.',
         // Replace the path below with your actual video file or URL
         videoUrl: callAgentVideo,
-        // image: yourDemoImage,   ← add an image import + uncomment if you have one
     },
 ];
 
