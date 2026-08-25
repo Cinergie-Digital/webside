@@ -109,7 +109,7 @@ const ScaleIcon: React.FC<{ className?: string; size?: number }> = ({ className 
 const items = [
   {
     title: "Proven Leadership",
-    text: "Global IT consulting expertise with local guidance. Cinergie Digital’s leaders bring 19+ years of experience helping enterprises accelerate digital transformation. ",
+    text: "Global IT consulting expertise with local guidance. Cinergie Digital’s leadership team averages 15+ years of enterprise technology experience, anchored by three decades of aviation technology expertise.",
     img: provenLeadership,
     alt: "Proven leadership team guiding enterprise digital transformation",
   },
