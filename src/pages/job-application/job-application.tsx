@@ -39,6 +39,8 @@ const JobApplication = () => {
   const [showErrorModal, setShowErrorModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string>('Something went wrong.');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showConsentModal, setShowConsentModal] = useState(false);
+  const [pendingApplicationData, setPendingApplicationData] = useState<any>(null);
 
   const successClose = () => setShowSuccessModal(false);
   const errorClose = () => {
@@ -93,7 +95,7 @@ const JobApplication = () => {
     <div className='font-semibold'>No Job Found</div>
   </div>;
 
-  const sendApplication = async (data: any) => {
+  const sendApplication = async (data: any, consent: 'yes' | 'no') => {
     try {
       setIsSubmitting(true);
       // if (!jobParam || !jobParam.job_id) {
@@ -117,6 +119,7 @@ const JobApplication = () => {
       formData.append('salaryPackage', data.salaryPackage);
       formData.append('reference', jobParam.reference.toString());
       formData.append('job_title', jobParam.title.toString());
+      formData.append('consent', consent);
 
       if (data.cv?.[0]) {
         formData.append('cv', data.cv[0]);
@@ -158,10 +161,13 @@ const JobApplication = () => {
       }
     } catch (err: any) {
       setErrorMessage(err.message || 'An unexpected error occurred.');
+      console.log("Error: ", err)
       setShowErrorModal(true);
       console.error('Submission error:', err);
     } finally {
       setIsSubmitting(false);
+      setPendingApplicationData(null);
+      setShowConsentModal(false);
     }
   };
 
@@ -171,7 +177,24 @@ const JobApplication = () => {
       return;
     }
 
-    await sendApplication(data);
+    setPendingApplicationData(data);
+    setShowConsentModal(true);
+  };
+
+  const handleConsentSubmit = async (consent: 'yes' | 'no') => {
+    if (!pendingApplicationData) return;
+
+    const applicationData = pendingApplicationData;
+
+    setShowConsentModal(false);
+    setPendingApplicationData(null);
+
+    await sendApplication(applicationData, consent);
+  };
+
+  const handleConsentClose = () => {
+    setShowConsentModal(false);
+    setPendingApplicationData(null);
   };
 
   let screeningQuestions: ScreeningQuestion[] = [];
@@ -512,6 +535,37 @@ const JobApplication = () => {
           </div>
         </div>
       )}
+
+      <Modal show={showConsentModal} onHide={handleConsentClose} centered animation={false}>
+          <Modal.Header closeButton>
+            <Modal.Title>AI Screening Consent</Modal.Title>
+          </Modal.Header>
+
+          <Modal.Body>
+            <p className="mb-0">
+              Do you consent to Cinergie Digital using your application data, CV, and screening
+              answers for AI-based candidate screening and AI model training/improvement purposes?
+            </p>
+          </Modal.Body>
+
+          <Modal.Footer>
+            <Button
+              variant="outline-secondary"
+              onClick={() => handleConsentSubmit('no')}
+              disabled={isSubmitting}
+            >
+              I Do Not Consent
+            </Button>
+
+            <Button
+              variant="primary"
+              onClick={() => handleConsentSubmit('yes')}
+              disabled={isSubmitting}
+            >
+              I Consent
+            </Button>
+          </Modal.Footer>
+        </Modal>
 
       <Modal show={showSuccessModal} onHide={successClose} size="sm" centered>
         <Modal.Header onHide={successClose} closeButton className="border-0 pb-0" />
